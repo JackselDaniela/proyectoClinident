@@ -18,12 +18,13 @@
                 <h4 class="page-title">Insumos</h4>
             </div>
             <div class="col-sm-8 col-9 text-right m-b-20">
-                <a   id="openModal" style="color: aliceblue!important;" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Añadir nuevo Insumo</a>
+                <button id="openModal" class="btn btn-primary float-right btn-rounded btn-press btn-add" ><i class="fa fa-plus"></i> Añadir Nuevo Insumo</button>
+                
             </div>
         </div>
         <section class="contenedor">
             <!-- Contenedor de elementos -->
-            <div class="contenedor-items">
+            <div class="contenedor-items" style="padding-bottom:2rem">
                 <div class="item">
                     <span class="titulo-item">Aceite Mineral</span>
                     <img src="assets/img/carrito/aceite mineral.jpg" alt="" class="img-item">
@@ -63,7 +64,7 @@
                 <div class="item">
                     <span class="titulo-item">Coltosol</span>
                     <img src="assets/img/carrito/coltosol.jpg" alt="" class="img-item">
-                    <span class="precio-item">$54.000</span>
+                    <span class="precio-item">1</span>
                     <button class="boton-item">Listar</button>
                 </div>
                 <div class="item">
@@ -79,11 +80,12 @@
                     <button class="boton-item">Listar</button>
                 </div>
                 <div class="item">
-                    <span class="titulo-item">Guantes Quirurgicos</span>
+                    <span class="titulo-item">G. Quirurgicos</span>
                     <img src="assets/img/carrito/guantes quirurgicos.jpg" alt="" class="img-item">
                     <span class="precio-item">6</span>
                     <button class="boton-item">Listar</button>
                 </div>
+                <br>
             </div>
             <!-- Carrito de Compras -->
             <div class="carrito" id="carrito">
@@ -133,8 +135,13 @@
                         </span>
                     </div>
                     <button class="btn-pagar">Solicitar <i class="fa-solid fa-bag-shopping"></i> </button>
+                    <br>
+                    <button class="btn-pagar">Registrar <i class="fa-solid fa-edit"></i> </button>
                 </div>
             </div>
+        
+            
+            
         </section>
         <!-- modal añadir -->
         <div id="modal-tratamiento" class="modal-container" style="margin-left: -7rem!important; margin-top:3rem; padding-top:3rem; margin-bottom:3rem; padding-bottom:3rem;">
@@ -453,9 +460,9 @@
                 
     
             </div>
-        </div>
+            </div>
 
-        <!--/ modal añadir -->
+            <!--/ modal añadir -->
 
         <div class="row">
             <div class="col-sm-12">
@@ -463,7 +470,7 @@
                     <a class="see-all-btn" href="javascript:void(0);">Cargar mas Productos</a>
                 </div>
             </div>
-        </div>
+            </div>
     </div>
     <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">

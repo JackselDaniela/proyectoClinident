@@ -32,10 +32,10 @@ let openPieza46 = document.getElementById('p46');
 let openPieza47 = document.getElementById('p47');
 let openPieza48 = document.getElementById('p48');
 let modalTratamiento = document.getElementById('modal-tratamiento');
-let modalPieza = document.getElementById('modal-pieza');
 let closeModal = document.getElementById('close-btn');
+let modalPieza = document.getElementById('modal-pieza');
 let closePieza = document.getElementById('closePieza');
-let p 
+
 let pieza 
 //Modal
 // Abrir modal
@@ -197,8 +197,3 @@ closePieza.onclick = function(){
 
 
 }
-
-function cerrar(){
-    swal('Esta seguro de que desea cerrar?');
-}
-

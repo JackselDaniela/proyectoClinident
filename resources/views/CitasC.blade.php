@@ -10,19 +10,31 @@
 <div class="page-wrapper">
     <div class="content">
         <div class="row">
-            <div class="col-sm-4 col-3" style="padding-left: 40px!important; padding-bottom:2rem;">
+            <div class="col-sm-4 col-3" style="padding-left: 1rem!important;">
                 <h4 class="page-title" >Citas Confirmadas</h4>
+            </div>
+            <div class="col-sm-7 col-8 text-right m-b-30">
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-white"><img src="{{asset('assets/img/pdf.png')}}" style="width: 30px"></button>
+                    <button class="btn btn-white"><i class="fa fa-print fa-lg"></i>Imprimir</button>
+                </div>
             </div>
             
         </div>
-        <section style="padding: 1rem 1rem; background-color: aqua">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"> Agendar Cita</a></li>
+                <li class="breadcrumb-item"><a href="#">Citas Confirmadas</a></li>
+            </ol>
+        </nav>
+        <section>
             <div class="row filter-row">
                 <div class="col-sm-4 col-md-4">
                     <div class="form-group row">
                         <div class="col-md-12">
                             <div class="input-group">
                                 
-                                <input class="form-control" placeholder="Fecha de Cita" type="date">
+                                <input class="form-control datetimepicker" placeholder="Fecha de Cita" type="datetime">
                                 <div class="input-group-append">
                                         <button class="btn btn-primary" type="button" style="border-radius: .8rem"><i class="fa fa-search"></i></button>
                                 </div>

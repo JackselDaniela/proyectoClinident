@@ -13,23 +13,33 @@
             <div class="col-sm-5 col-5">
                 <h4 class="page-title">Ruta de Tratamiento</h4>
             </div>
-            
         </div>
-        <div class="row filter-row">
-            <div class="col-sm-8 col-md-8 col-lg-8 col-xl-4 col-12">
-                <div class="form-group form-focus">
-                    <label class="focus-label">Doc. Identidad</label>
-                    <input type="text" class="form-control floating">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{asset('Index')}}">Gestion Paciente</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('RutaT')}}">Ruta de Tratamiento</a></li>
+            </ol>
+        </nav>
+
+        <section>
+            <div class="row filter-row">
+                
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                
+                                <input class="form-control" placeholder="Doc. Id. Paciente" type="text">
+                                <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" style="border-radius: .8rem"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            
-            
-            
-            
-                <a href="#" class="btn btn-success " style="width: 15rem!important; height: .7rem!important; border-radius: 3rem;"> Buscar Paciente </a>
-            
+                
         </div>
+        
         <div class="row">
             <div class="col-lg-12" >
                 <div class="table-responsive"style="padding-left:1rem;!important; padding-right:1rem;!important; overflow-x:hidden;!important">
@@ -198,6 +208,9 @@
                 </div>
             </div>
         </div>
+
+        </section>
+        
     </div>
     <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">

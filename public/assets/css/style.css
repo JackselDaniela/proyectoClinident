@@ -117,8 +117,8 @@ a:focus {
 	box-shadow: none;
 	padding: 0.469rem 0.75rem;
 	border-color: #eaeaea;
-	font-size: 14px;
-	min-height: 40px;
+	font-size: 1rem;
+	min-height: 1rem;
 }
 .form-control:focus {
 	border-color: #009efb;
@@ -173,6 +173,16 @@ textarea.form-control {
 .list-group-item {
 	border: 1px solid #eaeaea;
 }
+/* confiuraciones generales*/
+section{
+	padding: 1rem 1rem;
+	border: 2rem solid rgba(23, 12, 235, 0.2);
+	
+}
+
+btn
+
+
 /*------------modal---------------*/
 .header-titulo{
 	background-color: #008cff;
@@ -230,13 +240,15 @@ textarea.form-control {
 
 ::placeholder{
 	color: rgba(152, 151, 151,0.6)!important;
-    font-size: .7rem;
+    font-size: 1rem;
     font-style: italic;
 }
 button.btn.btn-primary.submit-btn:hover{
 	background:rgb(143, 11, 209);
 }
-
+button.btn.btn-primary.btn-add:hover{
+	background:rgb(143, 11, 209);
+}
 
 /*ODONTOGRAMA*/
 

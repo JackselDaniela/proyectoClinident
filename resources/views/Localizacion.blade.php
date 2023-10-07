@@ -10,84 +10,103 @@
 <div class="page-wrapper">
     <div class="content">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <form>
-                    <h3 class="page-title">Configuracion Basica</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Pais</label>
-                                <select class="select">
-                                    <option selected="selected">USA</option>
-                                    <option>United Kingdom</option>
-                                    <option>Venezuela</option>
-                                    <option>Chile</option>
-                                    <option>Colombia</option>
-                                    <option>Peru</option>
-                                    <option>Argentina</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Formato de Fecha</label>
-                                <select class="select">
-                                    <option value="d/m/Y">15/05/2016</option>
-                                    <option value="d.m.Y">15.05.2016</option>
-                                    <option value="d-m-Y">15-05-2016</option>
-                                    <option value="m/d/Y">05/15/2016</option>
-                                    <option value="Y/m/d">2016/05/15</option>
-                                    <option value="Y-m-d">2016-05-15</option>
-                                    <option value="M d Y">May 15 2016</option>
-                                    <option selected="selected" value="d M Y">15 May 2016</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Zona Horaria</label>
-                                <select class="select">
-                                    <option>(UTC +5:30) Antarctica/Palmer</option>
-                                    <option>(UTC +10:30) Australia</option>
-                                    <option>(UTC +6) Asia</option>
-                                    <option>(	UTC -4) America del Sur</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Lenguaje default</label>
-                                <select class="select">
-                                    <option>English</option>
-                                    <option selected="selected">Español</option>
-                                    <option >François</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Codigo de pago</label>
-                                <select class="select">
-                                    <option selected="selected">USD</option>
-                                    <option>Pound</option>
-                                    <option>EURO</option>
-                                    <option>Ringgit</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Moneda de pago</label>
-                                <input class="form-control" readonly value="$" type="text">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 text-center m-t-20">
-                            <button type="button" class="btn btn-primary submit-btn">Guardar</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="col-sm-12">
+                <h4 class="page-title">Configuración de la Clinica</h4>
             </div>
+
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{asset('Index')}}">Configuración</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('GestionU')}}">Gestion de Usuario</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('Localizacion')}}"> Localización</a></li>
+            </ol>
+        </nav>
+        <section>
+            <h3 class="page-title text-center" style="padding-bottom: 4rem">Localización</h3>
+            <div class="row">
+               
+                <div class="col-lg-8 offset-lg-2">
+                    <form>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Pais</label>
+                                    <select class="select">
+                                        <option selected="selected">USA</option>
+                                        <option>United Kingdom</option>
+                                        <option>Venezuela</option>
+                                        <option>Chile</option>
+                                        <option>Colombia</option>
+                                        <option>Peru</option>
+                                        <option>Argentina</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Formato de Fecha</label>
+                                    <select class="select">
+                                        <option value="d/m/Y">15/05/2016</option>
+                                        <option value="d.m.Y">15.05.2016</option>
+                                        <option value="d-m-Y">15-05-2016</option>
+                                        <option value="m/d/Y">05/15/2016</option>
+                                        <option value="Y/m/d">2016/05/15</option>
+                                        <option value="Y-m-d">2016-05-15</option>
+                                        <option value="M d Y">May 15 2016</option>
+                                        <option selected="selected" value="d M Y">15 May 2016</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Zona Horaria</label>
+                                    <select class="select">
+                                        <option>(UTC +5:30) Antarctica/Palmer</option>
+                                        <option>(UTC +10:30) Australia</option>
+                                        <option>(UTC +6) Asia</option>
+                                        <option>(	UTC -4) America del Sur</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Lenguaje default</label>
+                                    <select class="select">
+                                        <option>English</option>
+                                        <option selected="selected">Español</option>
+                                        <option >François</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Codigo de pago</label>
+                                    <select class="select">
+                                        <option selected="selected">USD</option>
+                                        <option>Pound</option>
+                                        <option>EURO</option>
+                                        <option>Ringgit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Moneda de pago</label>
+                                    <input class="form-control" readonly value="$" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-center m-t-20">
+                                <button type="button" class="btn btn-primary submit-btn">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </section>
+        
     </div>
     <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">

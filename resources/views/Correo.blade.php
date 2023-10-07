@@ -10,82 +10,102 @@
 <div class="page-wrapper">
     <div class="content">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <form>
-                    <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="mailoption" id="phpmail" value="option1">
-                            <label class="form-check-label" for="phpmail">PHP Mail</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="mailoption" id="smtpmail" value="option2">
-                            <label class="form-check-label" for="smtpmail">SMTP</label>
-                        </div>
-                    </div>
-                    <h4 class="page-title">PHP Email Configuracion</h4>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Email desde Direccion</label>
-                                <input class="form-control" type="email">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Email Desde Nombre</label>
-                                <input class="form-control" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <h4 class="page-title m-t-30">SMTP Email Configuracion</h4>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>SMTP HOST</label>
-                                <input class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>SMTP User</label>
-                                <input class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>SMTP Configuracion</label>
-                                <input class="form-control" type="password">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>SMTP PORT</label>
-                                <input class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>SMTP Seguridad</label>
-                                <select class="select">
-                                    <option>Nada</option>
-                                    <option>SSL</option>
-                                    <option>TLS</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>SMTP Dominio Autenticacion</label>
-                                <input class="form-control" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 m-t-20 text-center">
-                        <button type="button" class="btn btn-primary submit-btn">Guardar</button>
-                    </div>
-                </form>
+            <div class="col-sm-12">
+                <h4 class="page-title">Configuración de la Clinica</h4>
             </div>
+
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{asset('Index')}}">Configuración</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('GestionU')}}">Gestion de Usuario</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('Correo')}}"> Correo</a></li>
+            </ol>
+        </nav>
+        
+        <section>
+            <h4 class="page-title text-center" style="padding-bottom: 4rem">Correo</h4>
+
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <form>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="mailoption" id="phpmail" value="option1">
+                                <label class="form-check-label" for="phpmail">PHP Mail</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="mailoption" id="smtpmail" value="option2">
+                                <label class="form-check-label" for="smtpmail">SMTP</label>
+                            </div>
+                        </div>
+                        <h4 class="page-title">PHP Email Configuracion</h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email desde Direccion</label>
+                                    <input class="form-control" type="email">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email Desde Nombre</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="page-title m-t-30">SMTP Email Configuracion</h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>SMTP HOST</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>SMTP User</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>SMTP Configuracion</label>
+                                    <input class="form-control" type="password">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>SMTP PORT</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>SMTP Seguridad</label>
+                                    <select class="select">
+                                        <option>Nada</option>
+                                        <option>SSL</option>
+                                        <option>TLS</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>SMTP Dominio Autenticacion</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 m-t-20 text-center">
+                            <button type="button" class="btn btn-primary submit-btn">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+        
     </div>
     <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">

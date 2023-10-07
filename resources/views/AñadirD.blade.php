@@ -13,14 +13,24 @@
             <div class="col-lg-8 offset-lg-2">
                 <h4 class="page-title" style="padding-left: -10rem; margin-left:-10rem">Añadir Doctor</h4>
             </div>
-            <section style="padding: 1rem 1rem; background-color: rgba(23, 12, 235, 0.2)">
-                <h4 class=" text-center" style="padding: 2rem 0;color:aliceblue">Registrar Doctor</h4>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"> Doctores</a></li>
+                <li class="breadcrumb-item"><a href="#">Registrar Doctor</a></li>
+                <li class="breadcrumb-item"><a href="#">Añadir Doctor</a></li>
+            </ol>
+        </nav>
+
+            
+            <section >
+                <h4 class=" text-center" style="padding: 2rem 0;">Registrar Doctor</h4>
             
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <form action="{{route('AnadirD.store')}}" method="POST">
                         @csrf
-                        <div class="row" style="color: aliceblue">
+                        <div class="row" >
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     {{-- Persona --}}
@@ -174,7 +184,7 @@
                                                 <div class="col-lg-8 offset-lg-2">
                                                 
                                                     <div class="m-t-20 text-center">
-                                                        <button  type="submit" class="btn btn-primary submit-btn" style="list-style: none; color: aliceblue;">Registrar Paciente</button>
+                                                        <button  type="submit" class="btn btn-primary submit-btn" style="list-style: none; color: aliceblue;">Registrar Doctor</button>
                                                     </div>
                                                 </div>
             
@@ -398,7 +408,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        
         <div class="notification-box">
             <div class="msg-sidebar notifications msg-noti">
                 <div class="topnav-dropdown-header">

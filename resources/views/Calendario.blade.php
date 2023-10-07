@@ -14,39 +14,49 @@
             <div class="col-sm-8 col-4">
                 <h4 class="page-title">Calendario</h4>
             </div>
-            <div class="col-sm-4 col-8 text-right m-b-30">
-                <a href="#" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#add_event"><i class="fa fa-plus"></i> Añadir Cita</a>
-            </div>
+
+            
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card-box mb-0">
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="calendar">
-                                
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tratamiento</a></li>
+                <li class="breadcrumb-item"><a href="#">Registrar</a></li>
+            </ol>
+        </nav>
+        <section>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-box mb-0">
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="calendar">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade none-border" id="event-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content modal-md">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Añadir cita</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body"></div>
+                                <div class="modal-footer text-center">
+                                    <button type="button" class="btn btn-primary submit-btn save-event"> Agendar Cita</button>
+                                    <button type="button" class="btn btn-danger btn-lg delete-event" data-dismiss="modal">Borrar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade none-border" id="event-modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content modal-md">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Añadir cita</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body"></div>
-                            <div class="modal-footer text-center">
-                                <button type="button" class="btn btn-primary submit-btn save-event"> Agendar Cita</button>
-                                <button type="button" class="btn btn-danger btn-lg delete-event" data-dismiss="modal">Borrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
+
+        </section>
+        
     </div>
     <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">

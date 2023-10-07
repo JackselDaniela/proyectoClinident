@@ -28,6 +28,17 @@
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
             <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
             <ul class="nav user-menu float-right">
+                <li class="nav-item" style="color: aliceblue; padding-top:1rem;">
+                    @php
+                        date_default_timezone_set('America/Caracas');
+                        $fechaActual = date("d-m-Y");
+                        $horaActual = date("h:i:s");
+ 
+                        echo "Fecha:$fechaActual Hora: $horaActual" ;
+                        
+                    @endphp
+
+                </li>
                 <li class="nav-item dropdown d-none d-sm-block">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
                     <div class="dropdown-menu notifications">
@@ -202,7 +213,9 @@
                 <li>
                     <a href="{{asset('Index')}}"><i class="fa fa-home back-icon"></i> <span>Inicio</span></a>
                 </li>
-                <li class="menu-title">Editar mi Perfil</li>
+                <li >
+                    <a href="{{asset('EditarP')}}"><i class="fa fa-edit"></i><span>Editar mi Perfil</span></a>
+                </li>
                 
                 
                 <li>

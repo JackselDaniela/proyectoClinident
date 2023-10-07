@@ -27,144 +27,158 @@
             <div class="col-sm-5 col-6 text-right m-b-30">
                 <a href="{{asset('EditarP')}}" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
             </div>
+            
         </div>
-        <div class="card-box profile-header">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="profile-view">
-                        <div class="profile-img-wrap">
-                            <div class="profile-img">
-                                <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="profile-basic">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="profile-info-left">
-                                        <h3 class="user-name m-t-0 mb-0">Andrea Donato</h3>
-                                        <small class="text-muted">Odontologo General</small>
-                                        <div class="staff-id">ID : OG-0001</div>
-                                        <div class="staff-msg"><a href="chat.html" class="btn btn-primary">Enviar Mensaje</a></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <ul class="personal-info">
-                                        <li>
-                                            <span class="title">Telefono</span>
-                                            <span class="text"><a href="#">770-889-6484</a></span>
-                                        </li>
-                                        <li>
-                                            <span class="title">Email:</span>
-                                            <span class="text"><a href="#">adonato@example.com</a></span>
-                                        </li>
-                                        <li>
-                                            <span class="title">Cumpleaños</span>
-                                            <span class="text">17 Diciembre</span>
-                                        </li>
-                                        <li>
-                                            <span class="title">Direccion</span>
-                                            <span class="text">714 Burwell Heights Road, Bridge City, TX, 77611</span>
-                                        </li>
-                                        <li>
-                                            <span class="title">Genero:</span>
-                                            <span class="text">Femenino</span>
-                                        </li>
-                                    </ul>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{asset('Index')}}">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('Perfil')}}">Mi Perfil</a></li>
+            </ol>
+        </nav>
+        
+        <section>
+            
+            <div class="card-box profile-header">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-view">
+                            <div class="profile-img-wrap">
+                                <div class="profile-img">
+                                    <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt=""></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>                        
-                </div>
-            </div>
-        </div>
-        <div class="profile-tabs">
-            <ul class="nav nav-tabs nav-tabs-solid nav-justified">
-                <li class="nav-item"><a class="nav-link active" href="#solid-justified-tab1" data-toggle="tab">Estudios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#solid-justified-tab2" data-toggle="tab">Especializacion</a></li>
-                <li class="nav-item"><a class="nav-link" href="#solid-justified-tab3" data-toggle="tab">Pacientes</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane show active" id="solid-justified-tab1">
-                    <div class="card-box profile-header">
-                        <div class="row">
-                            <div class="col-md-12">
-                                    <div class="profile-basic">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="profile-info-left">
-                                                    <h3 class="user-name m-t-0 mb-0">Odontologo General</h3>
-                                                    <small class="text-muted">UNERG</small>
-                                                    <div class="staff-id">10 años Experiencia</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <ul class="personal-info">
-                                                    <li>
-                                                        <span class="title">Bachillerato</span>
-                                                        <span class="text"><a href="#">U.E.P Maria de la Paz</a></span>
-                                                    </li>
-                                                    <li>
-                                                        <span class="title">Pregrado</span>
-                                                        <span class="text"><a href="#">Universidad Nacional Experimental Romulo Gallegos</a></span>
-                                                    </li>
-                                                    <li>
-                                                        <span class="title">Congreso</span>
-                                                        <span class="text">Cirugia MaxiloFacial 2012, Nueva Esparta Venezuela - Venezuela</span>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
+                            <div class="profile-basic">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="profile-info-left">
+                                            <h3 class="user-name m-t-0 mb-0">Andrea Donato</h3>
+                                            <small class="text-muted">Odontologo General</small>
+                                            <div class="staff-id">ID : OG-0001</div>
+                                            <div class="staff-msg"><a href="chat.html" class="btn btn-primary">Enviar Mensaje</a></div>
                                         </div>
                                     </div>
-                                                      
+                                    <div class="col-md-7">
+                                        <ul class="personal-info">
+                                            <li>
+                                                <span class="title">Telefono</span>
+                                                <span class="text"><a href="#">770-889-6484</a></span>
+                                            </li>
+                                            <li>
+                                                <span class="title">Email:</span>
+                                                <span class="text"><a href="#">adonato@example.com</a></span>
+                                            </li>
+                                            <li>
+                                                <span class="title">Cumpleaños</span>
+                                                <span class="text">17 Diciembre</span>
+                                            </li>
+                                            <li>
+                                                <span class="title">Direccion</span>
+                                                <span class="text">714 Burwell Heights Road, Bridge City, TX, 77611</span>
+                                            </li>
+                                            <li>
+                                                <span class="title">Genero:</span>
+                                                <span class="text">Femenino</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="profile-tabs">
+                <ul class="nav nav-tabs nav-tabs-solid nav-justified">
+                    <li class="nav-item"><a class="nav-link active" href="#solid-justified-tab1" data-toggle="tab">Estudios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solid-justified-tab2" data-toggle="tab">Especializacion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solid-justified-tab3" data-toggle="tab">Pacientes</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="solid-justified-tab1">
+                        <div class="card-box profile-header">
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <div class="profile-basic">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="profile-info-left">
+                                                        <h3 class="user-name m-t-0 mb-0">Odontologo General</h3>
+                                                        <small class="text-muted">UNERG</small>
+                                                        <div class="staff-id">10 años Experiencia</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <ul class="personal-info">
+                                                        <li>
+                                                            <span class="title">Bachillerato</span>
+                                                            <span class="text"><a href="#">U.E.P Maria de la Paz</a></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Pregrado</span>
+                                                            <span class="text"><a href="#">Universidad Nacional Experimental Romulo Gallegos</a></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Congreso</span>
+                                                            <span class="text">Cirugia MaxiloFacial 2012, Nueva Esparta Venezuela - Venezuela</span>
+                                                        </li>
+                                                       
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                          
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane" id="solid-justified-tab2">
-                    Odontología General - Emergencias
-                </div>
-                <div class="tab-pane" id="solid-justified-tab3">
-                    <div class="col-lg-12">
-                        <div class="card-box">
-                            <div class="card-block">
-                                <h4 class="card-title">Pacientes Activos</h4>
-								<div class="table-responsive">
-									<table class="table mb-0">
-										<thead>
-											<tr>
-												<th>Paciente</th>
-												<th>Doc. Identidad</th>
-												<th>Email</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Juan Perez</td>
-												<td>000001</td>
-												<td>def@somemail.com</td>
-											</tr>
-											<tr >
-												<td>Petra Sinforosa</td>
-												<td>000002</td>
-												<td>john@example.com</td>
-											</tr>
-											<tr >
-												<td>Juana de Arco</td>
-												<td>0000003</td>
-												<td>mary@example.com</td>
-											</tr>
-											
-											
-											
-										</tbody>
-									</table>
-								</div>
+                    <div class="tab-pane" id="solid-justified-tab2">
+                        Odontología General - Emergencias
+                    </div>
+                    <div class="tab-pane" id="solid-justified-tab3">
+                        <div class="col-lg-12">
+                            <div class="card-box">
+                                <div class="card-block">
+                                    <h4 class="card-title">Pacientes Activos</h4>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Paciente</th>
+                                                    <th>Doc. Identidad</th>
+                                                    <th>Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Juan Perez</td>
+                                                    <td>000001</td>
+                                                    <td>def@somemail.com</td>
+                                                </tr>
+                                                <tr >
+                                                    <td>Petra Sinforosa</td>
+                                                    <td>000002</td>
+                                                    <td>john@example.com</td>
+                                                </tr>
+                                                <tr >
+                                                    <td>Juana de Arco</td>
+                                                    <td>0000003</td>
+                                                    <td>mary@example.com</td>
+                                                </tr>
+                                                
+                                                
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div> 
-                </div>      
-        </div>
+                        </div> 
+                    </div>      
+            </div>
+
+            
+        </section>
+       
     </div>
     
     <div class="notification-box">

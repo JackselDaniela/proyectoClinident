@@ -10,9 +10,25 @@
 <div class="page-wrapper">
     <div class="content">
         <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Configuración de la Clinica</h4>
+            </div>
+
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{asset('Index')}}">Configuración</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('GestionU')}}">Gestion de Usuario</a></li>
+                <li class="breadcrumb-item"><a href="{{asset('GestionU')}}"> Personalizar</a></li>
+            </ol>
+        </nav>
+        <section>
+            <h4 class="page-title text-center" style="padding-bottom: 4rem">Personalizar</h4>
+            
+        <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <form>
-                    <h4 class="page-title">Personalizar</h4>
+                    
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Nombre de Website</label>
                         <div class="col-lg-9">
@@ -39,12 +55,18 @@
                             <div class="settings-image img-thumbnail float-right"><img src="assets/img/favicon.ico" class="img-fluid" width="16" height="16" alt=""></div>
                         </div>
                     </div>
+                    
+
+                    
                     <div class="m-t-20 text-center">
                         <button class="btn btn-primary submit-btn">Guardar</button>
                     </div>
                 </form>
             </div>
         </div>
+
+        </section>
+
     </div>
     <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">

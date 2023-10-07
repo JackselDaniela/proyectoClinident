@@ -15,15 +15,22 @@
             </div>
             
         </div>
-        <section style="padding: 1rem 1rem; background-color: rgba(23, 12, 235, 0.2)">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"> Gestion de Paciente</a></li>
+                <li class="breadcrumb-item"><a href="#">Registro Expediente</a></li>
+                <li class="breadcrumb-item"><a href="#">Añadir Paciente</a></li>
+            </ol>
+        </nav>
+        <section >
             <div class="col-lg-8 offset-lg-2">
-                <h4 class=" text-center" style="padding: 2rem 0;color:aliceblue">Registrar Expediente</h4>
+                <h4 class=" text-center" style="padding: 2rem 0;">Registrar Expediente</h4>
             </div>
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <form action="{{route('AnadirP.store')}}" method="POST">
                         @csrf
-                        <div class="row" style="color: aliceblue">
+                        <div class="row" >
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     {{-- Persona --}}

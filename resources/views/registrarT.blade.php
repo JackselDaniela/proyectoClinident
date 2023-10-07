@@ -27,13 +27,21 @@
             <div class="col-sm-4 col-3">
                 <h4 class="page-title">Tratamientos de la Clinica</h4>
             </div>
+            
+
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tratamiento</a></li>
+                <li class="breadcrumb-item"><a href="#">Registrar</a></li>
+            </ol>
+        </nav>
         <!-- BOTON MODAL -->
         
      <!--/BOTON MODAL -->
-     <section style="padding: 1rem 1rem; background-color: rgba(23, 12, 235, 0.2)">
+     <section >
         <div  class="col-sm-12 col-md-12 text-right m-b-20">
-            <button id="openModal" class="btn btn-primary float-right btn-rounded btn-press "><i class="fa fa-plus"></i> Añadir</button>
+            <button id="openModal" class="btn btn-primary float-right btn-rounded btn-press btn-add" ><i class="fa fa-plus"></i> Añadir</button>
         </div>
         
         <div class="row filter-row">
@@ -412,58 +420,55 @@
                         <div class="row">
                         <div class="row">
                             <div class="col-lg-8 offset-lg-2">
-                                <form>
+                                <form action="{{route('RegistrarT.store')}}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nombre Tratamiento<span class="text-danger">*</span></label>
-                                                <input class="form-control"  type="text" required>
+                                                <input class="form-control" name="nom_tratamiento" type="text" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Costo</label>
-                                                <input class="form-control"  type="text" required>
+                                                <input class="form-control"  name="costo_tratamiento" type="text" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Codigo <span class="text-danger">*</span></label>
-                                                <input class="form-control"  type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Correo<span class="text-danger">*</span></label>
-                                                <input class="form-control"  type="email" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Doctor</label>
-                                                <input class="form-control" type="password" required>
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Doc.Id Empleado <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" required>
+                                                <input class="form-control" value="cod" name="codigo_tratamiento" type="text" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Fecha <span class="text-danger">*</span></label>
                                                 
-                                                    <input class="form-control datetimepicker" type="date" required>
+                                                    <input class="form-control" name="fecha_añadido" type="datetime-local" required>
                                                 
+                                            </div>
+                                        </div>
+                                        <div class="form-group" required>
+                                            <label class="display-block">Estatus</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="estatus" id="employee_active" value="option1" >
+                                                <label class="form-check-label" for="employee_active">
+                                                Activo
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="estatus" id="employee_inactive" value="option2">
+                                                <label class="form-check-label" for="employee_inactive">
+                                                Inactivo
+                                                </label>
                                             </div>
                                         </div>
                                         
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Especialidad</label>
-                                                <select class="select" required>
+                                                <select class="select" name="especialidad" required>
                                                     <option>Endodoncia</option>
                                                     <option>Ortodoncia</option>
                                                     <option>Tecnico Dental</option>
@@ -473,24 +478,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" required>
-                                        <label class="display-block">Estatus</label>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="employee_active" value="option1" >
-                                            <label class="form-check-label" for="employee_active">
-                                            Activo
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="employee_inactive" value="option2">
-                                            <label class="form-check-label" for="employee_inactive">
-                                            Inactivo
-                                            </label>
-                                        </div>
-                                    </div>
                                     
-                            <button type="submit" class="btn btn-primary submit-btn">Añadir Tratamiento</button>
-                            <br>
+                                    
+                                    <button type="submit" class="btn btn-primary submit-btn">Añadir Tratamiento</button>
+                                    <br>
                                 </form>
                             </div>
                         </div>

@@ -247,7 +247,7 @@
                     <a href="#"><i class="fa fa-medkit"></i> <span> Gestion de Insumos</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{asset('SolicitudI')}}">Solicitud Insumo</a></li>
-                        <li><a href="{{asset('NuevaC')}}">Nueva Carga Insumo</a></li>
+                        <li><a href="{{asset('NuevaC')}}">Insumo</a></li>
                     </ul>
                 </li>
                 <li class="submenu">

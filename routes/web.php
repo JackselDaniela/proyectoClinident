@@ -29,11 +29,11 @@ Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class
     /* Registrar tratamiento*/ 
 Route::get('/RegistrarT', [App\Http\Controllers\RegistrarTController::class, 'index'])->name('RegistrarT');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/RegistrarT', [App\Http\Controllers\RegistrarTController::class, 'store'])->name('RegistrarT.store');
 Auth::routes();
-Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
+Route::get('/mRegistrarT/{slug?}/edit', [App\Http\Controllers\RegistrarTController::class, 'edit'])->name('RegistrarT.edit');
 Auth::routes();
-Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
+Route::put('/update-RegistrarT/{slug?}', [App\Http\Controllers\RegistrarTController::class, 'update'])->name('RegistrarT.update');
 Auth::routes();
 
     
@@ -75,6 +75,16 @@ Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
 Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
+Auth::routes();
+
+    /* añadir tratamiento paciente*/ 
+Route::get('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'index'])->name('AnadirT');
+Auth::routes();
+Route::post('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'store'])->name('AnadirT.store');
+Auth::routes();
+Route::get('/AnadirT/{slug?}/edit', [App\Http\Controllers\AnadirTController::class, 'edit'])->name('AnadirT.edit');
+Auth::routes();
+Route::put('/update-AnadirT/{slug?}', [App\Http\Controllers\AnadirTController::class, 'update'])->name('AnadirT.update');
 Auth::routes();
 
 /* Ruta Tratamientoa*/ 

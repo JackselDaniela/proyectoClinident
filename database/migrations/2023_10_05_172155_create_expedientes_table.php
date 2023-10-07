@@ -52,6 +52,7 @@ class CreateExpedientesTable extends Migration
             
             
             $table->foreign('personas_id')->references('id')->on('personas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
