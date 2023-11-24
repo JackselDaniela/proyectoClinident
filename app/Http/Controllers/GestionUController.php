@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\gestion_u;
+use App\Models\dato_ubicacion;
+
 use Illuminate\Http\Request;
 
 class GestionUController extends Controller
@@ -34,7 +37,30 @@ class GestionUController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $clinica = new gestion_u();
+        $clinica-> nom_empresa     = $request-> post('nom_empresa');
+        $clinica-> fax             = $request-> post('fax');
+        $clinica-> website     = $request-> post('website');
+        $clinica->save();
+
+        $clinica = new dato_ubicacion();
+        $clinica-> estado     = $request-> post('estado');
+        $clinica-> municipio  = $request-> post('municipio');
+        $clinica-> ciudad     = $request-> post('ciudad');
+        $clinica-> parroquia  = $request-> post('parroquia');
+        $clinica-> direccion  = $request-> post('direccion');
+        $clinica-> telefono   = $request-> post('telefono');
+        $clinica-> correo     = $request-> post('correo');
+        $clinica->save();
+        
+        if ($clinica->save()) {
+            return redirect()->route("GestionU");
+        }else{
+            return redirect()->route("GestionU");
+        }
+       
+
     }
 
     /**

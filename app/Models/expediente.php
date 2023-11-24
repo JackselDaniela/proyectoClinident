@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class expediente extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    public function paciente(){
+        return $this->belongsTo(paciente::class,'pacientes_id');
+    }
 }

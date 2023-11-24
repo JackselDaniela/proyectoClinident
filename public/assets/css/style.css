@@ -532,6 +532,20 @@ table.table td h2 span {
 	border-color: transparent;
 	background-color: #009efb;
 }
+.btn-tratamiento{
+	border-color: transparent;
+	background-color: #6c0ab7;
+}
+
+.btn-tratamiento:hover,
+.btn-tratamiento:focus,
+.btn-tratamiento.active,
+.btn-tratamiento:active,
+.open > .dropdown-toggle.btn-tratamiento{
+	background-color: #009efb;
+	border: 1px solid #009efb;
+	color: #fff;
+}
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.active,
@@ -1479,28 +1493,28 @@ ul.chat-user-total li i.old-users {
 	color: #fff;
 	padding: 5px 10px;
 	border-radius: 4px;
-	font-size: 1.1rem;
+	font-size: .8rem;
 }
 .dash-widget-info > span.widget-title2 {
 	background: #55ce63;
 	color: #fff;
 	padding: 5px 10px;
 	border-radius: 4px;
-	font-size: 1.1rem;
+	font-size: .8rem;
 }
 .dash-widget-info > span.widget-title3 {
 	background: rgb(247, 10, 18);
 	color: #fff;
 	padding: 5px 10px;
 	border-radius: 4px;
-	font-size: 1.1rem;
+	font-size: .8rem;
 }
 .dash-widget-info > span.widget-title4 {
 	background: #ffbc35;
 	color: #fff;
 	padding: 5px 10px;
 	border-radius: 4px;
-	font-size: 1.1rem;
+	font-size: .8rem;
 }
 .member-panel .contact-list > li:last-child {
 	border-bottom: 0;

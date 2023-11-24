@@ -36,29 +36,18 @@ let closeModal = document.getElementById('close-btn');
 let modalPieza = document.getElementById('modal-pieza');
 let closePieza = document.getElementById('closePieza');
 
-let pieza 
-//Modal
-// Abrir modal
-//funcion para mostrar cada diente.
-function mostrarPieza(pieza) {
-    let imgPieza = document.createElement('pieza');
-    imgPieza = pieza;
-    document.body.appendChild(imgPieza);  
-}
 
 
-openModal.onclick = function(){
-    modalTratamiento.style.visibility ="visible";
-    
-}
+
+const temporal = document.getElementById('modal-pieza')
+
+
 //cerrar modal 
 closeModal.onclick = function(){
     modalTratamiento.style.visibility="hidden";
-
-
 }
 openPieza11.onclick = function(){
-    modalPieza.style.visibility ="visible";
+    temporal.style.visibility ="visible";
     
 }
 openPieza12.onclick = function(){
@@ -192,8 +181,7 @@ openPieza48.onclick = function(){
 
 
 //cerrar modal 
-closePieza.onclick = function(){
-    modalPieza.style.visibility="hidden";
-
-
+closeModal.onclick = function(){
+    console.log(temporal)
+    temporal.style.visibility="hidden";
 }

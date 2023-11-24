@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\registro_tratamiento;
+use App\Models\especialidad_tratamiento;
+use App\Models\porcentaje;
 use Illuminate\Http\Request;
 
 class PorcentajesController extends Controller
@@ -34,7 +36,22 @@ class PorcentajesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clinica = new registro_tratamiento();
+        $clinica->nom_tratamiento    =$request-> post('nom_tratamiento');
+        $clinica->save();
+
+
+        $clinica = new porcentaje();
+        $clinica-> porcentaje_clinica     = $request-> post('porcentaje_clinica');
+        $clinica->save();
+
+
+        if ($clinica->save()) {
+                return redirect()->route("Porcentajes");
+            }else{
+                return redirect()->route("Porcentajes");
+            }
+           
     }
 
     /**

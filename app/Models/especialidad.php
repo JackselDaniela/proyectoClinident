@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class especialidad extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    public function doctor(){
+        return $this->hasMany(doctor::class,'especialidads_id');
+    }
 }

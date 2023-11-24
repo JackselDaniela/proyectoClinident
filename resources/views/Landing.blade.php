@@ -47,7 +47,7 @@
         <nav id="navbar" class="navbar order-last order-lg-0" >
           <ul>
             <li><a class="nav-link scrollto" href="#start">Inicio</a></li>
-            <li><a class="nav-link scrollto" href="#why-us">Acerca de</a></li>
+            <li><a class="nav-link scrollto" href="#why-us">Servicios</a></li>
             <li><a class="nav-link scrollto" href="#services">Beneficios</a></li>
             <li><a class="nav-link scrollto" href="#departments">Especialidades</a></li>
             <li><a class="nav-link scrollto" href="#doctors">Doctores</a></li>
@@ -69,8 +69,10 @@
           <button type="button" class="btn close" data-dismiss="modal" aria-label="Close" id="btn-close" style="padding-top: 1rem">
             <span aria-hidden="true">&times;</span>
           </button>
+          <img src="{{asset('assets/img/logoc.png')}}" style="width: 5rem">
           <div class="modal-header">
-            <h5 class="modal-title text-center" id="exampleModalLongTitle">Inicio de Sesión</h5>
+            
+            <h5 class="modal-title text-center" id="exampleModalLongTitle" style="font-size: 1rem">Inicio de Sesión</h5>
             
           </div>
           <div class="modal-body">
@@ -88,14 +90,14 @@
                       <label>Contraseña</label>
                       <input type="password" class="form-control">
                   </div>
-                  <div class="form-group text-right">
+                  <div class="form-group text-center">
                       <a href="forgot-password.html">Ha olvidado su contraseña?</a>
                   </div>
                   
                     
                     <div class="container-login100-form-btn">
                       <button type="submit" style="border:none" class="appointment-btn scrollto">
-                        <a href="{{asset('Index')}}" style=" color:aliceblue;!important; ">Iniciar sesión</a>
+                        <a href="{{asset('Index')}}" style=" color:aliceblue;!important; ">Ingresar</a>
                       </button>
                     </div>
           

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\cambio_contrasena;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +35,19 @@ class CambioCController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clinica = new cambio_contrasena();
+        $clinica-> vieja_contraseña     = $request-> post('vieja_contraseña');
+        $clinica-> nueva_contraseña     = $request-> post('nueva_contraseña');
+        $clinica-> confirmar_contraseña     = $request-> post('confirmar_contraseña');
+        $clinica->save();
+
+
+        if ($clinica->save()) {
+                return redirect()->route("CambioC");
+            }else{
+                return redirect()->route("CambioC");
+            }
+           
     }
 
     /**

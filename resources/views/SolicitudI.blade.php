@@ -157,65 +157,99 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-8 offset-lg-2">
-                                <form>
+                                <form action="{{route('SolicitudI.store')}}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Nombre <span class="text-danger">*</span></label>
-                                                <input class="form-control" type="text" required>
+                                                <label>Nombre <span class="text-danger">*</span>
+                                                    @if($errors->first('nom_insumo'))
+                                                    <p class="text-danger">
+                                                        {{$errors->first('nom_insumo')}}
+                                                    </p>
+                                                    @endif</label>
+                                                <input class="form-control" maxlength="30" name="nom_insumo" id="nom_insumo" type="text" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
+                                                <label>Codigo <span class="text-danger">*</span>
+                                                    @if($errors->first('cod_insumo'))
+                                                    <p class="text-danger">
+                                                        {{$errors->first('cod_insumo')}}
+                                                    </p>
+                                                    @endif
+                                                </label>
+                                                <input class="form-control" name="cod_insumo" id="cod_insumo" type="text" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
                                                 <label>Presentación</label>
-                                                <select class="select" required>
-                                                    <option>Unidad</option>
-                                                    <option>Docena</option>
-                                                    <option>Litro</option>
-                                                    <option>Mililitros</option>
-                                                    <option>Gramos</option>
-                                                    <option>Kilogramos</option>
+                                                <select class="select" name="presentacion_insumo" required>
+                                                    <option value="unidad">Unidad</option>
+                                                    <option value="docena">Docena</option>
+                                                    <option value="litro">Litro</option>
+                                                    <option value="mililitro">Mililitros</option>
+                                                    <option value="gramos">Gramos</option>
+                                                    <option value="kilogramos">Kilogramos</option>
                                                 </select>
                                             </div>
                                         </div>
+                                        
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Codigo <span class="text-danger">*</span></label>
-                                                <input class="form-control" type="text" required>
+                                                <label>Fecha Elaboración<span class="text-danger">*</span>
+                                                    @if($errors->first('elaboracion_insumo'))
+                                                    <p class="text-danger">
+                                                        {{$errors->first('elaboracion_insumo')}}
+                                                    </p>
+                                                    @endif</label>
+                                                <input class="form-control"  name="elaboracion_insumo" id="elaboracion_insumo" type="date" required>                                                                                                                           
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Fecha Elaboración<span class="text-danger">*</span></label>
-                                                <input class="form-control" type="date" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Fecha Vencimiento</label>
-                                                <input class="form-control" type="date" required>
+                                                <label>Fecha Vencimiento
+                                                    @if($errors->first('vencimiento_insumo'))
+                                                    <p class="text-danger">
+                                                        {{$errors->first('vencimiento_insumo')}}
+                                                    </p>
+                                                    @endif
+                                                </label>
+                                                <input class="form-control" name="vencimiento_insumo" id="vencimiento_insumo" type="date" required>
                                             </div>
                                         </div>
                                     
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Serial <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" required>
+                                                <label>Serial <span class="text-danger">*</span>
+                                                    @if($errors->first('serial_insumo'))
+                                                    <p class="text-danger">
+                                                        {{$errors->first('serial_insumo')}}
+                                                    </p>
+                                                    @endif</label>
+                                                <input type="text" name="serial_insumo" maxlength="10" id="serial_insumo" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Descripción <span class="text-danger">*</span></label>
+                                                <label>Descripción <span class="text-danger">*</span>
+                                                    @if($errors->first('descripcion_insumo'))
+                                                    <p class="text-danger">
+                                                        {{$errors->first('descripcion_insumo')}}
+                                                    </p>
+                                                    @endif</label>
                                                 
-                                                    <input class="form-control datetimepicker" type="text" >
+                                                    <input class="form-control" maxlength="100" name="descripcion_insumo" id="descripcion_insumo" type="text" >
                                                 
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                            <div class="form-group" >
                                                 <label>Función</label>
-                                                <select class="select" required>
+                                                <select class="select" name="funcion_insumo" id="funcion_insumo" required>
                                                     <option>Endodoncia</option>
                                                     <option>Ortodoncia</option>
                                                     <option>Tecnico Dental</option>
@@ -233,228 +267,19 @@
                                                         <img alt="" src="assets/img/user.jpg">
                                                     </div>
                                                     <div class="upload-input">
-                                                        <input type="file" class="form-control">
+                                                        <input type="file" name="foto_insumo" id="foto_insumo" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary submit-btn">Añadir </button>
+                                    <button type="submit" class="btn btn-primary submit-btn" style="margin-bottom: 2rem">Añadir </button>
                                     
                                 </form>
                             </div>
                         </div>
                            
                         
-                    </div>
-                    <div class="notification-box">
-                        <div class="msg-sidebar notifications msg-noti">
-                            <div class="topnav-dropdown-header">
-                                <span>Messages</span>
-                            </div>
-                            <div class="drop-scroll msg-list-scroll" id="msg_list">
-                                <ul class="list-box">
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">R</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">Richard Miles </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item new-message">
-                                                <div class="list-left">
-                                                    <span class="avatar">J</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">John Doe</span>
-                                                    <span class="message-time">1 Aug</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">T</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author"> Tarah Shropshire </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">M</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">Mike Litorus</span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">C</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author"> Catherine Manseau </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">D</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author"> Domenic Houston </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">B</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author"> Buster Wigton </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">R</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author"> Rolland Webber </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">C</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author"> Claire Mapes </span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">M</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">Melita Faucher</span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">J</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">Jeffery Lalor</span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">L</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">Loren Gatlin</span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">
-                                            <div class="list-item">
-                                                <div class="list-left">
-                                                    <span class="avatar">T</span>
-                                                </div>
-                                                <div class="list-body">
-                                                    <span class="message-author">Tarah Shropshire</span>
-                                                    <span class="message-time">12:28 AM</span>
-                                                    <div class="clearfix"></div>
-                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="topnav-dropdown-footer">
-                                <a href="chat.html">Ver todos los mendajes</a>
-                            </div>
-                        </div>
                     </div>
                 
                 

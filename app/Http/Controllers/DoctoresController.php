@@ -1,19 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\persona;
+use App\Models\doctor;
+use App\Models\dato_ubicacion;
+use App\Models\especialidad;
+
 
 use Illuminate\Http\Request;
 
 class DoctoresController extends Controller
-{
+{  
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('Doctores');
+        $doctor = doctor::with('persona','especialidad','persona.dato_ubicacion')->get();
+        return view('Doctores',compact('doctor'));
     }
 
     /**
@@ -56,8 +63,15 @@ class DoctoresController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
+    public function eliminarD($id)
+    {
+        $doctor = doctor::find($id);
+        $doctor->delete();
+        return redirect()->route("Doctores");
+    }
+
 
     /**
      * Update the specified resource in storage.

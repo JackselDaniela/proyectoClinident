@@ -1,4 +1,4 @@
-@extends('layouts.plantilla3')
+@extends('layouts.plantilla')
 
 @section('title')
 <title>Clinident / Gestion de Usuario</title>
@@ -21,8 +21,11 @@
             </ol>
         </nav>
         <section>
-            
-            <form>
+         
+         
+            <form action="{{route('EditarP.update',['id'=>$paciente->id])}}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="card-box">
                     <h3 class="card-title text-center" style="padding-bottom:4rem">Informacion Basica</h3>
                     <div class="row">
@@ -39,29 +42,29 @@
                                     <div class="col-md-6">
                                         <div class="form-group form-focus">
                                             <label class="focus-label">Primer Nombre</label>
-                                            <input type="text" class="form-control floating" value="Andrea">
+                                            <input type="text" name="nombre" class="form-control floating" value="{{$paciente->persona->nombre}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group form-focus">
                                             <label class="focus-label">Apellido</label>
-                                            <input type="text" class="form-control floating" value="Donato">
+                                            <input type="text" name="apellido" class="form-control floating" value="{{$paciente->persona->apellido}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group form-focus">
                                             <label class="focus-label">Fecha de Naciemiento</label>
                                             <div class="cal-icon">
-                                                <input class="form-control floating datetimepicker" type="text" value="05/06/1985">
+                                                <input name="fecha_nacimiento" class="form-control floating datetimepicker" type="text" value="{{$paciente->persona->fecha_nacimiento}}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group form-focus select-focus">
+                                        <div class="form-group form-focus select-focus"  >
                                             <label class="focus-label">Genero</label>
-                                            <select class="select form-control floating">
-                                                <option value="male">Male</option>
-                                                <option value="female " selected>Female</option>
+                                            <select name="genero"  class="select form-control floating" value='{{$paciente->persona->genero}}'>
+                                                <option value="male">Masculino</option>
+                                                <option value="female " selected>Femenino</option>
                                             </select>
                                         </div>
                                     </div>
@@ -76,31 +79,22 @@
                         <div class="col-md-12">
                             <div class="form-group form-focus">
                                 <label class="focus-label">Dirección</label>
-                                <input type="text" class="form-control floating" value="4487 Snowbird Lane">
+                                <input name="direccion" type="text" class="form-control floating" value='{{$paciente->persona->dato_ubicacion->direccion}}'>
                             </div>
+                            
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-focus">
                                 <label class="focus-label">Estado</label>
-                                <input type="text" class="form-control floating" value="New York">
+                                <input name="estado" type="text" class="form-control floating" value="{{$paciente->persona->dato_ubicacion->estado}}">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">País</label>
-                                <input type="text" class="form-control floating" value="United States">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Pin Code</label>
-                                <input type="text" class="form-control floating" value="10523">
-                            </div>
-                        </div>
+                      
+                        
                         <div class="col-md-6">
                             <div class="form-group form-focus">
                                 <label class="focus-label">Telefono</label>
-                                <input type="text" class="form-control floating" value="631-889-3206">
+                                <input name="telefono" type="text" class="form-control floating" value="{{$paciente->persona->dato_ubicacion->telefono}}">
                             </div>
                         </div>
                     </div>
@@ -108,309 +102,497 @@
                 <div class="card-box">
                     <h3 class="card-title">Informacion Academica</h3>
                     <div class="row">
+                        
                         <div class="col-md-6">
                             <div class="form-group form-focus">
-                                <label class="focus-label">Institución</label>
-                                <input type="text" class="form-control floating" value="Oxford University">
+                                <label class="focus-label">Ocupacion</label>
+                                <input name="ocupacion" type="text" class="form-control floating" value="{{$paciente->ocupacion}}">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Profesion</label>
-                                <input type="text" class="form-control floating" value="Odontología">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Fecha de Inicio</label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control floating datetimepicker" value="01/06/2002">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Fecha de Culminación</label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control floating datetimepicker" value="31/05/2006">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Título</label>
-                                <input type="text" class="form-control floating" value="Odontologo General">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Grado</label>
-                                <input type="text" class="form-control floating" value="Grado A">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add-more">
-                        <a href="#" class="btn btn-primary "><i class="fa fa-plus"></i>Añadir mas Institutos</a>
-                    </div>
+                        
+                    </div> 
+
                 </div>
-                <div class="card-box">
-                    <h3 class="card-title">Experiencia</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Nombre de la compañia</label>
-                                <input type="text" class="form-control floating" value="Digital Devlopment Inc">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Ubicación</label>
-                                <input type="text" class="form-control floating" value="United States">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Cargo</label>
-                                <input type="text" class="form-control floating" value="Odontologo General">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Desde</label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control floating datetimepicker" value="01/07/2007">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-focus">
-                                <label class="focus-label">Hasta</label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control floating datetimepicker" value="08/06/2018">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add-more">
-                        <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Añadir mas Experiencia</a>
-                    </div>
-                </div>
+                <table class="table table-striped custom-table">
+                    <thead>
+                        <tr>
+                            <th> Condicion </th>
+                            <th>  </th>
+                            <th> Descripcion </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alergia Penicilina</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="alergia_penicilina"  value="Si"
+                                            @if ($paciente->alergia_penicilina=='Si') 
+                                           checked
+                                            
+                                             @endif 
+                                        class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="alergia_penicilina" value="No"  
+                                            @if ($paciente->alergia_penicilina=='No') 
+                                           checked
+                                            
+                                             @endif 
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique metodo alternativo usado" maxlength="100" value="{{$paciente->desc_alergia_p}}" type="text" name="desc_alergia_p"style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Alergia a Medicamento</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name='alergia_medicamento'  value="Si"
+                                            @if ($paciente->alergia_medicamento=='Si') 
+                                           checked
+                                            
+                                             @endif 
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name='alergia_medicamento' value="No" 
+                                            @if ($paciente->alergia_medicamento=='No') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique medicamento y/o componentes" maxlength="100" value="Descripcion"
+                                 type="text" name="desc_alergia_m" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Tratamiento Medico Actual</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="trat_actual" value="Si"
+                                            @if ($paciente->trat_actual=='Si') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input" required>Si esta bajo tratamiento
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="trat_actual" value="No" 
+                                            @if ($paciente->trat_actual=='No') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input">No Esta bajo tratamiento
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique tipo de tratamiento y medicamentos" maxlength="100"  value="Descripcion" type="text" name="desc_trat_actual" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Está en Estado Gravidez</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="gravidez" value="Si" 
+                                            @if ($paciente->gravidezl=='Si') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="gravidez" value="No"
+                                            @if ($paciente->gravidez=='No') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique etapa de Gravidez" type="text" maxlength="100" value="Descripcion" name="desc_gravidez" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Ha experimentado Hemorragias</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="hemorragia" value="Si" 
+                                            @if ($paciente->hemorragia=='Si') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="hemorragia" value="No"
+                                            @if ($paciente->hemorragia=='No') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique motivos" type="text" maxlength="100" value="Descripcion" name="desc_hemorragia" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td> Padece de Desmayos</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="desmayos" value="Si"  
+                                            @if ($paciente->desmayos=='Si') 
+                                            checked
+                                             
+                                              @endif 
+                                            required class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="desmayos" value="No" 
+                                            @if ($paciente->desmayos=='No') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique contexto que provoca desmayos" maxlength="100" value="Descripcion" type="text" name="desc_desmayos" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td> Padece de Asma</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="asma" value="Si"  
+                                            @if ($paciente->asma=='Si') 
+                                            checked
+                                             
+                                              @endif  
+                                            
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="asma" value="No"
+                                            @if ($paciente->asma=='No') 
+                                            checked
+                                             
+                                              @endif  class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique serveridad" type="text" maxlength="100" name="desc_asma"  value="Descripcion" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Padece Diábetes</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="diabetes"  value="Si" 
+                                            @if ($paciente->diabetes=='Si') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="diabetes" value="No"
+                                            @if ($paciente->diabetes=='No') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique Tipo"type="text"  maxlength="100" name="desc_diabetes"  value="Descripcion" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Padece de Hipertension Arterial</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="hipertension" value="Si" 
+                                            @if ($paciente->hipertension=='Si') 
+                                            checked
+                                             
+                                              @endif 
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="hipertension" value="No" 
+                                            @if ($paciente->hipertension=='No') 
+                                            checked
+                                             
+                                              @endif
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Ultimo registro de tension"  maxlength="100" type="text"  value="Descripcion" name="desc_hipertension" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        
+                        <tr>
+                            <td>Padece de Epilepsia</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="epilepsia" value="Si"
+                                            @if ($paciente->epilepsia=='Si') 
+                                            checked
+                                              @endif
+                                             class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="epilepsia" value="No"
+                                            @if ($paciente->epilepsia=='No') 
+                                            checked
+                                              @endif
+                                             class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique motivos y frecuencia"  maxlength="100" type="text"  value="Descripcion" name="desc_epilepsia" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Padece de Cancer Actualmente</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="cancer_actual" value="Si"
+                                            @if ($paciente->cancer_actual=='Si') 
+                                            checked
+                                              @endif
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="cancer_actual" value="No"
+                                            @if ($paciente->cancer_actual=='No') 
+                                            checked
+                                              @endif 
+                                              class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Indique Tipo de Cancer"type="text"  maxlength="100"  value="Descripcion" name="desc_cancer_actual" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Ha padecido de Cancer</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="cancer_pasado" value="Si"
+                                            @if ($paciente->cancer_pasado=='Si') 
+                                            checked
+                                              @endif
+                                                 class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="cancer_pasado" value="No"
+                                            
+                                            @if ($paciente->cancer_pasado=='No') 
+                                            checked
+                                              @endif
+                                            class="form-check-input">No
+                                        </label>
+                                    </div>
+
+                            </td>
+                            <td><input placeholder="Indique Tipo de Cancer"type="text"  maxlength="100"  value="Descripcion" name="desc_cancer_pasado" style="border-style: hidden; text-align: center;"></td>
+                            
+                           
+                            
+                        </tr>
+                        <tr>
+                            <td>Padece VIH</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="vih" value="Si"
+                                            
+                                             @if ($paciente->vih=='Si') 
+                                            checked
+                                              @endif class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="vih" value="No"
+                                            
+                                            @if ($paciente->vih=='No') 
+                                            checked
+                                              @endif
+                                               class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Fecha de prueba  positiva"  maxlength="100"  value="Descripcion" type="text" name="desc_vih" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Padece Enfermedad Inmunodeficiente</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="inmunodeficiente" value="Si" 
+                                            @if ($paciente->inmunodeficiente=='Si') 
+                                            checked
+                                              @endif
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="inmunodeficiente" 
+                                            @if ($paciente->inmunodeficiente=='No') 
+                                            checked
+                                              @endif
+                                            value="No" class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Nombre de la condicion"type="text"  maxlength="100"  value="Descripcion" name="desc_inmunodeficiente" style="border-style: hidden; text-align: center;"></td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>Fuma Actualmente</td>
+                            <td>
+                                <div class="form-group gender-select">
+                                    <label class="gen-label"></label>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="fumador" value="Si" 
+                                            @if ($paciente->inmunodeficiente=='Si') 
+                                            checked
+                                              @endif
+                                            class="form-check-input" required>Si
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="fumador" value="No"
+                                            
+                                            @if ($paciente->inmunodeficiente=='No') 
+                                            checked
+                                              @endif
+                                               class="form-check-input">No
+                                        </label>
+                                    </div>
+                            </td>
+                            <td><input placeholder="Desde Hace Cuanto?"type="text"  maxlength="100"  value="Descripcion" name="desc_fumador" style="border-style: hidden; text-align: center;"></td>
+                             
+                        </tr>
+                    </tbody>
+                </table> 
+                
                 <div class="text-center m-t-20">
-                    <button class="btn btn-primary submit-btn" type="button">Guardar</button>
+                    <button type="submit" class="btn btn-primary submit-btn" >Guardar</button>
                 </div>
             </form>
-
+           
         </section>
         
-    </div>
-    <div class="notification-box">
-        <div class="msg-sidebar notifications msg-noti">
-            <div class="topnav-dropdown-header">
-                <span>Messages</span>
-            </div>
-            <div class="drop-scroll msg-list-scroll" id="msg_list">
-                <ul class="list-box">
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">R</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">Richard Miles </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item new-message">
-                                <div class="list-left">
-                                    <span class="avatar">J</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">John Doe</span>
-                                    <span class="message-time">1 Aug</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">T</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author"> Tarah Shropshire </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">M</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">Mike Litorus</span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">C</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author"> Catherine Manseau </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">D</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author"> Domenic Houston </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">B</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author"> Buster Wigton </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">R</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author"> Rolland Webber </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">C</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author"> Claire Mapes </span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">M</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">Melita Faucher</span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">J</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">Jeffery Lalor</span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">L</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">Loren Gatlin</span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat.html">
-                            <div class="list-item">
-                                <div class="list-left">
-                                    <span class="avatar">T</span>
-                                </div>
-                                <div class="list-body">
-                                    <span class="message-author">Tarah Shropshire</span>
-                                    <span class="message-time">12:28 AM</span>
-                                    <div class="clearfix"></div>
-                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="topnav-dropdown-footer">
-                <a href="chat.html">See all messages</a>
-            </div>
-        </div>
     </div>
 </div>
 @endsection

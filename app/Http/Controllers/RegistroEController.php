@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\persona;
+use App\Models\dato_ubicacion;
+use App\Models\paciente;
+use App\Models\expediente;
+use App\Models\tipo_persona;
 
 use Illuminate\Http\Request;
 
@@ -12,8 +17,16 @@ class RegistroEController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    
     {
-        return view('RegistroE');
+        
+        
+        $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
+        ->get();
+       
+
+
+        return view('RegistroE',compact('paciente'));
     }
 
     /**
@@ -58,6 +71,13 @@ class RegistroEController extends Controller
     {
         //
     }
+    public function eliminarE($id)
+    {
+        $paciente = paciente::find($id);
+        $paciente->delete();
+        return redirect()->route("RegistroE");
+    }
+
 
     /**
      * Update the specified resource in storage.

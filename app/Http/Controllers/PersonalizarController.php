@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\personalizar;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +35,17 @@ class PersonalizarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clinica = new personalizar();
+        $clinica->nom_website    = $request->post('nom_website');
+        $clinica->logo         = $request->post('logo');
+        $clinica->favicon = $request->post('favicon');
+        $clinica->save();
+        
+        if ($clinica->save()) {
+            return redirect()->route("Personalizar");
+        }else{
+            return redirect()->route("Personalizar");
+        }
     }
 
     /**

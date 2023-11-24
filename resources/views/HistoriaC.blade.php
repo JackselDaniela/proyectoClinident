@@ -40,7 +40,7 @@
                             <div class="col-md-12">
                                 <div class="input-group">
                                     
-                                    <input class="form-control" style="padding: 2rem;font-size:1.8rem" placeholder="Doc. Identidad" type="text">
+                                    <input class="form-control" style="padding: 2rem;font-size:1.8rem" placeholder="Ex:25976000" type="text">
                                     <div class="input-group-append">
                                             <button class="btn btn-primary" type="button" style="border-radius: .8rem"><i class="fa fa-search"></i></button>
                                     </div>
@@ -65,8 +65,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                               
                                     
+                                <tr>
+                                
                                     <td>000123</td>
                                     <td>Francisco</td>
                                     <td>Jimenez</td>
@@ -93,6 +95,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -109,6 +112,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
+                        
+                   
                     <tr>
                         <td>Alergia Penicilina</td>
                         <td>
@@ -426,6 +432,7 @@
                         
                         
                     </tr>
+                    
                     
                 </tbody>
                 </table>

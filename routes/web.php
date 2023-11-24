@@ -1,5 +1,5 @@
 <?php
-
+//use App\Http\Controllers\;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,20 +31,19 @@ Route::get('/RegistrarT', [App\Http\Controllers\RegistrarTController::class, 'in
 Auth::routes();
 Route::post('/RegistrarT', [App\Http\Controllers\RegistrarTController::class, 'store'])->name('RegistrarT.store');
 Auth::routes();
-Route::get('/mRegistrarT/{slug?}/edit', [App\Http\Controllers\RegistrarTController::class, 'edit'])->name('RegistrarT.edit');
+Route::get('/eliminarT /{id}', [App\Http\Controllers\RegistrarTController::class, 'eliminarT'])->name('eliminarT');
 Auth::routes();
 Route::put('/update-RegistrarT/{slug?}', [App\Http\Controllers\RegistrarTController::class, 'update'])->name('RegistrarT.update');
 Auth::routes();
-
     
     /* Calendario*/ 
 Route::get('/Calendario', [App\Http\Controllers\CalendarioController::class, 'index'])->name('Calendario');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/Calendario', [App\Http\Controllers\CalendarioController::class, 'store'])->name('marca.store');
 Auth::routes();
-Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
+Route::get('/Calendario/{slug?}/edit', [App\Http\Controllers\CalendarioController::class, 'edit'])->name('marca.edit');
 Auth::routes();
-Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
+Route::put('/update-Calendario/{slug?}', [App\Http\Controllers\CalendarioController::class, 'update'])->name('marca.update');
 Auth::routes();
     
     /* Citas Confirmadas*/ 
@@ -62,6 +61,8 @@ Route::get('/RegistroE', [App\Http\Controllers\RegistroEController::class, 'inde
 Auth::routes();
 Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
 Auth::routes();
+Route::get('/eliminarE /{id}', [App\Http\Controllers\RegistroEController::class, 'eliminarE'])->name('eliminarE');
+Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
 Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
@@ -77,12 +78,15 @@ Auth::routes();
 Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
 Auth::routes();
 
-    /* añadir tratamiento paciente*/ 
+
+/* añadir tratamiento paciente*/ 
 Route::get('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'index'])->name('AnadirT');
 Auth::routes();
 Route::post('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'store'])->name('AnadirT.store');
 Auth::routes();
-Route::get('/AnadirT/{slug?}/edit', [App\Http\Controllers\AnadirTController::class, 'edit'])->name('AnadirT.edit');
+Route::put('/AnadirT/edit/{slug?}', [App\Http\Controllers\AnadirTController::class, 'edit'])->name('AnadirT.edit');
+Auth::routes();
+Route::get('/AnadirT/buscar/{slug?}', [App\Http\Controllers\AnadirTController::class, 'buscar'])->name('AnadirT.buscar');
 Auth::routes();
 Route::put('/update-AnadirT/{slug?}', [App\Http\Controllers\AnadirTController::class, 'update'])->name('AnadirT.update');
 Auth::routes();
@@ -100,11 +104,11 @@ Auth::routes();
 /* Solicitud Insumos*/ 
 Route::get('/SolicitudI', [App\Http\Controllers\SolicitudIController::class, 'index'])->name('SolicitudI');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/SolicitudI', [App\Http\Controllers\SolicitudIController::class, 'store'])->name('SolicitudI.store');
 Auth::routes();
-Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
+Route::get('/SolicitudI/{slug?}/edit', [App\Http\Controllers\SolicitudIController::class, 'edit'])->name('SolicitudI.edit');
 Auth::routes();
-Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
+Route::put('/update-SolicitudI/{slug?}', [App\Http\Controllers\SolicitudIController::class, 'update'])->name('SolicitudI.update');
 Auth::routes();
 
 /* Nueva Carga */ 
@@ -142,7 +146,7 @@ Auth::routes();
 /* Tratamientos Realizados */ 
 Route::get('/GestionU', [App\Http\Controllers\GestionUController::class, 'index'])->name('GestionU');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/GestionU', [App\Http\Controllers\GestionUController::class, 'store'])->name('GestionU.store');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -152,7 +156,7 @@ Auth::routes();
 /* Localización*/ 
 Route::get('/Localizacion', [App\Http\Controllers\LocalizacionController::class, 'index'])->name('Localizacion');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/Localizacion', [App\Http\Controllers\LocalizacionController::class, 'store'])->name('Localizacion.store');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -162,7 +166,7 @@ Auth::routes();
 /* Personalizar*/ 
 Route::get('/Personalizar', [App\Http\Controllers\PersonalizarController::class, 'index'])->name('Personalizar');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/Personalizar', [App\Http\Controllers\PersonalizarController::class, 'store'])->name('Personalizar.store');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -182,7 +186,7 @@ Auth::routes();
 /* Correo*/ 
 Route::get('/Correo', [App\Http\Controllers\CorreoController::class, 'index'])->name('Correo');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/Correo', [App\Http\Controllers\CorreoController::class, 'store'])->name('Correo.store');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -192,7 +196,7 @@ Auth::routes();
 /* Porcentajes*/ 
 Route::get('/Porcentajes', [App\Http\Controllers\PorcentajesController::class, 'index'])->name('Porcentajes');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/Porcentajes', [App\Http\Controllers\PorcentajesController::class, 'store'])->name('Porcentajes.store');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -202,7 +206,7 @@ Auth::routes();
 /* Cambiar Contraseña*/ 
 Route::get('/CambioC', [App\Http\Controllers\CambioCController::class, 'index'])->name('CambioC');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/CambioC', [App\Http\Controllers\CambioCController::class, 'store'])->name('CambioC.store');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -233,7 +237,7 @@ Auth::routes();
 /* Perfil*/ 
 Route::get('/Perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('Perfil');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::post('/Perfil/{id}', [App\Http\Controllers\PerfilController::class, 'show'])->name('Perfil.show');
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
@@ -241,13 +245,26 @@ Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class
 Auth::routes();
 
 /* Editar Perfil*/ 
-Route::get('/EditarP', [App\Http\Controllers\EditarPController::class, 'index'])->name('EditarP');
+// Route::get('/EditarP', [App\Http\Controllers\EditarPController::class, 'index'])->name('EditarP');
+// Auth::routes();
+// Route::post('/EditarP', [App\Http\Controllers\EditarPController::class, 'store'])->name('EditarP.store');
+// Auth::routes();
+
+Route::get('/EditarP/{id}', [App\Http\Controllers\EditarPController::class, 'edit'])->name('EditarP.edit');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::get('/AnadirT/{id}', [App\Http\Controllers\EditarPController::class, 'buscar'])->name('EditarP.buscar');
+Route::put('/update-EditarP/{id}', [App\Http\Controllers\EditarPController::class, 'update'])->name('EditarP.update');
 Auth::routes();
-Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
+
+/* Editar Perfil doctor*/ 
+// Route::get('/EditarPD', [App\Http\Controllers\EditarPDController::class, 'index'])->name('EditarPD');
 Auth::routes();
-Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
+Route::post('/EditarPD', [App\Http\Controllers\EditarPDController::class, 'store'])->name('EditarPD.store');
+Auth::routes();
+
+Route::get('/EditarPD/{id}', [App\Http\Controllers\EditarPDController::class, 'edit'])->name('EditarPD.edit');
+Auth::routes();
+Route::put('/update-EditarPD/{id}', [App\Http\Controllers\EditarPDController::class, 'update'])->name('EditarPD.update');
 Auth::routes();
 
 
@@ -279,6 +296,8 @@ Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->n
 Auth::routes();
 Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
 Auth::routes();
+Route::get('/eliminarD /{id}', [App\Http\Controllers\DoctoresController::class, 'eliminarD'])->name('eliminarD');
+Auth::routes();
 Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
 Auth::routes();
 
@@ -291,12 +310,32 @@ Route::get('/AnadirD/{slug?}/edit', [App\Http\Controllers\AnadirDController::cla
 Auth::routes();
 Route::put('/update-AnadirD/{slug?}', [App\Http\Controllers\AnadirDController::class, 'update'])->name('AnadirD.update');
 Auth::routes();
+
 /* añadir Pacientes*/ 
 Route::get('/AnadirP', [App\Http\Controllers\AnadirPController::class, 'index'])->name('AnadirP');
 Auth::routes();
 Route::post('/AnadirP', [App\Http\Controllers\AnadirPController::class, 'store'])->name('AnadirP.store');
 Auth::routes();
-Route::get('/Anadirp/{slug?}/edit', [App\Http\Controllers\AnadirPController::class, 'edit'])->name('AnadirP.edit');
+Route::get('/AnadirP/{slug?}/edit', [App\Http\Controllers\AnadirPController::class, 'edit'])->name('AnadirP.edit');
+Auth::routes();
+Route::put('/update-AnadirP/{slug?}', [App\Http\Controllers\AnadirPController::class, 'update'])->name('AnadirP.update');
+Auth::routes();
+
+/* Ayuda*/ 
+Route::get('/Ayuda', [App\Http\Controllers\AyudaController::class, 'index'])->name('Ayuda');
+Auth::routes();
+Route::post('/Ayuda', [App\Http\Controllers\AyudaController::class, 'store'])->name('Ayuda.store');
+Auth::routes();
+Route::get('/Ayuda/{slug?}/edit', [App\Http\Controllers\AyudaController::class, 'edit'])->name('Ayuda.edit');
+Auth::routes();
+Route::put('/update-AnadirP/{slug?}', [App\Http\Controllers\AnadirPController::class, 'update'])->name('AnadirP.update');
+Auth::routes();
+/* Ayuda*/ 
+Route::get('/blogAyuda', [App\Http\Controllers\blogAyudaController::class, 'index'])->name('blogAyuda');
+Auth::routes();
+Route::post('/blogAyuda', [App\Http\Controllers\blogAyudaController::class, 'store'])->name('blogAyuda.store');
+Auth::routes();
+Route::get('/Ayuda/{slug?}/edit', [App\Http\Controllers\AyudaController::class, 'edit'])->name('Ayuda.edit');
 Auth::routes();
 Route::put('/update-AnadirP/{slug?}', [App\Http\Controllers\AnadirPController::class, 'update'])->name('AnadirP.update');
 Auth::routes();

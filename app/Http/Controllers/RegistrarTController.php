@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\estatus;
-use App\Models\especialidad;
-use App\Models\registro_tratamiento;
+use App\Models\registrar_tratamiento;
 
 use Illuminate\Http\Request;
 
@@ -16,7 +15,12 @@ class RegistrarTController extends Controller
      */
     public function index()
     {
-        return view('RegistrarT');
+        
+        $tratamiento = registrar_tratamiento::select('*')
+        
+        ->get();
+        
+        return view('RegistrarT',compact('tratamiento'));
     }
 
     /**
@@ -37,23 +41,19 @@ class RegistrarTController extends Controller
      */
     public function store(Request $request)
     {
-        $tratamiento = new registro_tratamiento();
-        $tratamiento->nom_tratamiento    = $request->post('nom_tratamiento');
-        $tratamiento->costo_tratamiento  = $request->post('costo_tratamiento');
-        $tratamiento->codigo_tratamiento = $request->post('codigo_tratamiento');
-        $tratamiento->fecha_añadido      = $request->post('fecha_añadido');
-        $tratamiento->save();
-
-        $tratamiento = new estatus();
-        $tratamiento->estatus    = $request->post('estatus');
-        $tratamiento->save();
-        $tratamiento = new especialidad();
-        $tratamiento->especialidad    = $request->post('especialidad');
-        $tratamiento->save();
-
+        
+        
+         $tratamiento = registrar_tratamiento::create([
+            'nom_tratamiento'    => $request->post('nom_tratamiento'),
+            'costo_tratamiento'  => $request->post('costo_tratamiento'),
+            'codigo_tratamiento' => $request->post('codigo_tratamiento'),
+            'fecha_añadido'      => $request->post('fecha_añadido'),
+            'especialidad_tratamiento'      => $request->post('especialidad_tratamiento')
+         ]);
+       
 
         
-        if ($tratamiento->save()) {
+        if ($tratamiento!=null) {
             return redirect()->route("RegistrarT");
         }else{
             return redirect()->route("RegistrarT");
@@ -82,6 +82,15 @@ class RegistrarTController extends Controller
     public function edit($id)
     {
         //
+    }
+    public function eliminarT($id)
+    {
+        $tratamiento = registrar_tratamiento::find($id);
+        $tratamiento->delete();
+        return redirect()->route("RegistrarT");
+    }
+
+    /**
     }
 
     /**

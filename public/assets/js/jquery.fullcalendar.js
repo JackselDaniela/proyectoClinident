@@ -3,7 +3,7 @@
     "use strict";
 
     var CalendarApp = function() {
-        this.$body = $("bod y")
+        this.$body = $("body")
         this.$modal = $('#event-modal'),
         this.$event = ('#external-events div.external-event'),
         this.$calendar = $('#calendar'),

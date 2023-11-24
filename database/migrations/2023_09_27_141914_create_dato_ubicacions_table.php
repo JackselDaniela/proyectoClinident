@@ -22,6 +22,7 @@ class CreateDatoUbicacionsTable extends Migration
             $table->string('direccion',100);
             $table->string('telefono',100);
             $table->string('correo',100);
+            
             $table->timestamps();
         });
     }

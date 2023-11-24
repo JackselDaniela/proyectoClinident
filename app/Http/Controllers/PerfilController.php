@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\persona;
+use App\Models\dato_ubicacion;
+use App\Models\especialidad;
+use App\Models\doctor;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +17,15 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        return view ('Perfil');
+        $especialidad = especialidad::All();
+        $doctor = persona::select('*')
+        ->join("especialidads", "personas.id", "=", "especialidads.id")
+        ->join("dato_ubicacions", "personas.id", "=", "dato_ubicacions.id")
+        
+        
+        ->get();
+
+        return view ('Perfil',compact('doctor'));
     }
 
     /**
@@ -45,7 +57,15 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        //
+        $especialidad = especialidad::All();
+        $doctor = persona::select('*')
+        ->join("especialidads", "personas.id", "=", "especialidads.id")
+        ->join("dato_ubicacions", "personas.id", "=", "dato_ubicacions.id")
+        
+        
+        ->get();
+
+        return view ('Perfil',compact('doctor'));
     }
 
     /**
@@ -56,7 +76,8 @@ class PerfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+       
     }
 
     /**

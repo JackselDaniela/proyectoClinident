@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\paciente;
+use App\Models\expediente;
+use App\Models\persona;
 
 class AnadirTController extends Controller
 {
@@ -11,9 +14,9 @@ class AnadirTController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       return view('AnadirT');
+    public function index(){
+        $pacientes = persona::All();
+       return view('AnadirT',compact('pacientes'));
     }
 
     /**
@@ -43,7 +46,9 @@ class AnadirTController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    
+    
+     public function show($id)
     {
         //
     }
@@ -54,9 +59,28 @@ class AnadirTController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        
+        $pacientes = persona::All();
+        $paciente = persona::All()
+       ->where('tipo_personas','2')
+       ->where('doc_identidad',$id)
+       ->get();
+       
+        return view('AnadirT', compact('paciente','pacientes',$paciente,$pacientes));
+    }
+    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function buscar(Request $request)
+    {
+
     }
 
     /**

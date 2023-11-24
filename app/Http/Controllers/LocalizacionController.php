@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\localizacion;
+use App\Models\zona_horaria;
+use App\Models\lenguaje;
+use App\Models\codigo_pago;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +38,31 @@ class LocalizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $clinica = new localizacion();
+        $clinica-> pais          = $request-> post('pais');
+        $clinica-> moneda          = $request-> post('moneda');
+        $clinica->save();
+
+        $clinica = new zona_horaria();
+        $clinica-> zona_horaria           = $request-> post('zona_horaria');
+        $clinica->save();
+        
+
+        $clinica = new lenguaje();
+        $clinica-> lenguaje           = $request-> post('lenguaje');
+        $clinica->save();
+        
+        $clinica = new codigo_pago();
+        $clinica-> codigo_pago           = $request-> post('codigo_pago');
+        $clinica->save();
+
+        $clinica->save();
+        if ($clinica->save()) {
+                return redirect()->route("Localizacion");
+            }else{
+                return redirect()->route("Localizacion");
+            }
     }
 
     /**
