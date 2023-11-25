@@ -243,7 +243,6 @@
                     <a href="#"><i class="fa fa-user"></i> <span> Gestion de Paciente</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{asset('RegistroE')}}">Registro Expediente</a></li>
-                        <li><a href="{{asset('HistoriaC')}}">Historia Clinica</a></li>
                         <li><a href="{{asset('RutaT')}}">Ruta de Tratamiento</a></li>
                     </ul>
                 </li>

@@ -179,7 +179,20 @@
                             </div>
                             {{--/ Datos Ubicacion --}}
     
-                           
+                            {{-- <div class="form-group row">
+                                <label class=" col-sm-2">Especialidad</label>
+                                <div class="col-md-8">
+                                    <select class="form-control">
+                                        <option value="No Especifica">-- Seleccione --</option>
+                                        <option value="Endodoncia" >Endodoncia</option>
+                                        <option value="Ortodoncia" >Ortodoncia</option>
+                                        <option value="Maxilo Facial" >Maxilo Facial</option>
+                                        <option value="Periodoncia">Periodoncia</option>
+                                        <option value="Prostodoncia">Prostodoncia</option>
+                                        
+                                    </select>
+                                </div>
+                            </div> --}}
 
                             {{-- Especialidad --}}
                             
@@ -187,11 +200,13 @@
                                 <div class="form-group gender-select">
                                     <label class="gen-label">Especialidad</label>
                                     <select class="select" name="especialidad" id="especialidad" required>
-                                        <option value="Endodoncia"> Endodoncia</option>
-                                        <option value="Ortodoncia"> Ortodoncia</option>
-                                        <option value="Maxilofacial"> Maxilofacial</option>
-                                        <option value="Od General"> Od. General</option>
-                                        <option value="Tecnico Dental"> Tecnico dental</option>
+                                        <option value="No Especifica">-- Seleccione --</option>
+                                        <option value="Endodoncia" >Endodoncia</option>
+                                        <option value="Ortodoncia" >Ortodoncia</option>
+                                        <option value="Maxilo Facial" >Maxilo Facial</option>
+                                        <option value="Periodoncia">Periodoncia</option>
+                                        <option value="Prostodoncia">Prostodoncia</option>
+                                        
                                     </select>
                                     
                                 </div>

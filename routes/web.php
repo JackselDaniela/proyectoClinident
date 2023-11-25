@@ -77,12 +77,26 @@ Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class,
 Auth::routes();
 Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
 Auth::routes();
+Route::get('/HistoriaC/buscar/{id}', [App\Http\Controllers\HistoriaCController::class, 'buscar'])->name('HistoriaC.buscar');
+Auth::routes();
 
 
 /* añadir tratamiento paciente*/ 
 Route::get('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'index'])->name('AnadirT');
 Auth::routes();
 Route::post('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'store'])->name('AnadirT.store');
+Auth::routes();
+Route::put('/AnadirT/edit/{slug?}', [App\Http\Controllers\AnadirTController::class, 'edit'])->name('AnadirT.edit');
+Auth::routes();
+Route::get('/AnadirT/buscar/{id}', [App\Http\Controllers\AnadirTController::class, 'buscar'])->name('AnadirT.buscar');
+Auth::routes();
+Route::put('/update-AnadirT/{slug?}', [App\Http\Controllers\AnadirTController::class, 'update'])->name('AnadirT.update');
+Auth::routes();
+
+/* Odontograma*/ 
+Route::get('/Odontograma', [App\Http\Controllers\OdontogramaController::class, 'index'])->name('Odontograma');
+Auth::routes();
+Route::post('/Odontograma', [App\Http\Controllers\OdontogramaController::class, 'store'])->name('Odontograma.store');
 Auth::routes();
 Route::put('/AnadirT/edit/{slug?}', [App\Http\Controllers\AnadirTController::class, 'edit'])->name('AnadirT.edit');
 Auth::routes();

@@ -6,6 +6,7 @@ use App\Models\dato_ubicacion;
 use App\Models\paciente;
 use App\Models\expediente;
 use App\Models\tipo_persona;
+use App\Models\pieza;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class RegistroEController extends Controller
     
     {
         
-        
+       
         $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
         ->get();
        

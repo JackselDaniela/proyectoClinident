@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\persona;
-use App\Models\dato_ubicacion;
-use App\Models\especialidad;
+use App\Models\User;
+use App\Models\Role;
 use App\Models\paciente;
+use App\Models\persona;
 use App\Models\expediente;
-class HistoriaCController extends Controller
+use App\Models\pieza;
+use App\Models\estatus_tratamiento;
+use App\Models\diagnostico;
+use App\Models\paciente_diagnostico;
+
+
+class OdontogramaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +23,7 @@ class HistoriaCController extends Controller
      */
     public function index()
     {
-        return view('HistoriaC');
+        return view('odontograma');
     }
 
     /**
@@ -38,14 +44,7 @@ class HistoriaCController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-    public function buscar($id)
-    {
-       $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
-        ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
-        ->find($id);
-    return view('HistoriaC', compact('paciente'));
+        
     }
 
     /**

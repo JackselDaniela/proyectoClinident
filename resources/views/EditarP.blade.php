@@ -182,7 +182,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique medicamento y/o componentes" maxlength="100" value="Descripcion"
+                            <td><input placeholder="Indique medicamento y/o componentes" maxlength="100" value="{{$paciente->desc_alergia_m}}"
                                  type="text" name="desc_alergia_m" style="border-style: hidden; text-align: center;"></td>
                             
                             
@@ -214,7 +214,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique tipo de tratamiento y medicamentos" maxlength="100"  value="Descripcion" type="text" name="desc_trat_actual" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique tipo de tratamiento y medicamentos" maxlength="100"  value="{{$paciente->desc_trat_actual}}" type="text" name="desc_trat_actual" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -245,7 +245,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique etapa de Gravidez" type="text" maxlength="100" value="Descripcion" name="desc_gravidez" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique etapa de Gravidez" type="text" maxlength="100" value="{{$paciente->desc_gravidez}}" name="desc_gravidez" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -276,7 +276,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique motivos" type="text" maxlength="100" value="Descripcion" name="desc_hemorragia" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique motivos" type="text" maxlength="100" value={{$paciente->desc_hemorragia}}" name="desc_hemorragia" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -307,7 +307,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique contexto que provoca desmayos" maxlength="100" value="Descripcion" type="text" name="desc_desmayos" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique contexto que provoca desmayos" maxlength="100" value={{$paciente->desc_desmayos}} type="text" name="desc_desmayos" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -338,7 +338,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique serveridad" type="text" maxlength="100" name="desc_asma"  value="Descripcion" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique serveridad" type="text" maxlength="100" name="desc_asma"  value={{$paciente->desc_asma}} style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -369,7 +369,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique Tipo"type="text"  maxlength="100" name="desc_diabetes"  value="Descripcion" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique Tipo"type="text"  maxlength="100" name="desc_diabetes"  value={{$paciente->desc_diabetes}} style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -400,7 +400,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Ultimo registro de tension"  maxlength="100" type="text"  value="Descripcion" name="desc_hipertension" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Ultimo registro de tension"  maxlength="100" type="text"  value={{$paciente->desc_hipertension}} name="desc_hipertension" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -430,7 +430,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique motivos y frecuencia"  maxlength="100" type="text"  value="Descripcion" name="desc_epilepsia" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique motivos y frecuencia"  maxlength="100" type="text"  value={{$paciente->desc_epilepsia}} name="desc_epilepsia" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -459,7 +459,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Indique Tipo de Cancer"type="text"  maxlength="100"  value="Descripcion" name="desc_cancer_actual" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique Tipo de Cancer"type="text"  maxlength="100"  value={{$paciente->desc_cancer_actual}} name="desc_cancer_actual" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -490,7 +490,7 @@
                                     </div>
 
                             </td>
-                            <td><input placeholder="Indique Tipo de Cancer"type="text"  maxlength="100"  value="Descripcion" name="desc_cancer_pasado" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Indique Tipo de Cancer"type="text"  maxlength="100"  value={{$paciente->desc_cancer_pasado}} name="desc_cancer_pasado" style="border-style: hidden; text-align: center;"></td>
                             
                            
                             
@@ -521,7 +521,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Fecha de prueba  positiva"  maxlength="100"  value="Descripcion" type="text" name="desc_vih" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Fecha de prueba  positiva"  maxlength="100"  value={{$paciente->vih}} type="text" name="desc_vih" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -550,7 +550,7 @@
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Nombre de la condicion"type="text"  maxlength="100"  value="Descripcion" name="desc_inmunodeficiente" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Nombre de la condicion"type="text"  maxlength="100"  value={{$paciente->desc_inmunodeficiente}} name="desc_inmunodeficiente" style="border-style: hidden; text-align: center;"></td>
                             
                             
                         </tr>
@@ -562,7 +562,7 @@
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
                                             <input type="radio" name="fumador" value="Si" 
-                                            @if ($paciente->inmunodeficiente=='Si') 
+                                            @if ($paciente->fumador=='Si') 
                                             checked
                                               @endif
                                             class="form-check-input" required>Si
@@ -573,14 +573,14 @@
                                         <label class="form-check-label">
                                             <input type="radio" name="fumador" value="No"
                                             
-                                            @if ($paciente->inmunodeficiente=='No') 
+                                            @if ($paciente->fumador=='No') 
                                             checked
                                               @endif
                                                class="form-check-input">No
                                         </label>
                                     </div>
                             </td>
-                            <td><input placeholder="Desde Hace Cuanto?"type="text"  maxlength="100"  value="Descripcion" name="desc_fumador" style="border-style: hidden; text-align: center;"></td>
+                            <td><input placeholder="Desde Hace Cuanto?"type="text"  maxlength="100"  value={{$paciente->desc_fumador}} name="desc_fumador" style="border-style: hidden; text-align: center;"></td>
                              
                         </tr>
                     </tbody>

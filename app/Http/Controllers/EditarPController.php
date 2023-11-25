@@ -6,6 +6,7 @@ use App\Models\dato_ubicacion;
 use App\Models\especialidad;
 use App\Models\paciente;
 use App\Models\expediente;
+use App\Models\pieza;
 
 
 use Illuminate\Http\Request;
@@ -71,7 +72,8 @@ class EditarPController extends Controller
        $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
         ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
         ->find($id);
-    return view('AnadirT', compact('paciente'));
+        return view('AnadirT', compact('paciente'));
+
     }
     /**
      * Update the specified resource in storage.

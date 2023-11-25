@@ -68,9 +68,9 @@
                                         <td>{{$persona->dato_ubicacion->telefono;}}</td>
                                         <td>{{$persona->dato_ubicacion->correo;}}</td>
                                         <td >
-                                            <a href="{{route('EditarP.buscar',['id'=>$paciente->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
-                                            <a href="{{route('EditarP.edit',['id'=>$paciente->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
-                                            <a href="{{route('eliminarE',['id'=>$paciente->id]) }}"><li class="fa fa-trash-o" style="width: 1rem"></li></a>
+                                            <a title="Añadir Tratamiento" href="{{route('EditarP.buscar',['id'=>$paciente->id])}}"><li class="fa fa-plus" style="width: 1rem"></li></a>
+                                            <a title="Editar Paciente" href="{{route('EditarP.edit',['id'=>$paciente->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
+                                            <a title="Eliminar Paciente" href="{{route('eliminarE',['id'=>$paciente->id]) }}"><li class="fa fa-trash-o" style="width: 1rem"></li></a>
                                         </td>
                                         </tr>
                                     @endforeach 
