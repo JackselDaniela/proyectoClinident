@@ -108,15 +108,17 @@ Route::put('/update-AnadirT/{slug?}', [App\Http\Controllers\AnadirTController::c
 Auth::routes();
 
 /* Ruta Tratamientoa*/ 
-Route::get('/RutaT', [App\Http\Controllers\RutaTController::class, 'index'])->name('RutaT');
-Auth::routes();
+// Route::get('/RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'index'])->name('RutaT.index');
+// Auth::routes();
 Route::get('/RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'buscar'])->name('RutaT.buscar');
+Auth::routes();
+Route::get('/RutaT /{id}', [App\Http\Controllers\RutaTController::class, 'eliminarT'])->name('RutaT.eliminarT');
 Auth::routes();
 Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
 Auth::routes();
-Route::get('/marcas/{slug?}/edit', [App\Http\Controllers\MarcaController::class, 'edit'])->name('marca.edit');
+Route::get('/RutaT/editar/{id}/{p}', [App\Http\Controllers\RutaTController::class, 'editar'])->name('RutaT.editar');
 Auth::routes();
-Route::put('/update-marca/{slug?}', [App\Http\Controllers\MarcaController::class, 'update'])->name('marca.update');
+Route::put('/update-RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'update'])->name('RutaT.update');
 Auth::routes();
 
 /* Solicitud Insumos*/ 

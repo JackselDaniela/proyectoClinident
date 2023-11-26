@@ -71,41 +71,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($paciente_diagnostico as $paciente_diagnostico)
-                                
                             
+                            <form action="{{route('RutaT.update',['id'=>$paciente_diagnostico->id])}} "method="POST">
+                                @csrf
+                                @method('PUT')
                             <tr>
-                                <td>{{$paciente_diagnostico->pieza->nom_pieza}}</td>
+                                <td>{{$paciente_diagnostico->nom_pieza}}</td>
                                 <td>{{$paciente_diagnostico->diagnostico}}</td>
                                 <td>{{$paciente_diagnostico->costo_tratamiento}} $</td>
                                 <td >
-                                  
-                                    <span
-                                    @if ($paciente_diagnostico->estatus=='En Espera'||$paciente_diagnostico->estatus=='Pieza en Espera')
-                                    class="  custom-badge status-red">
-                                    @endif
-                                    @if ($paciente_diagnostico->estatus=='En Proceso'||$paciente_diagnostico->estatus=='Pieza en Proceso')
-                                    class="  custom-badge status-blue">
-                                    @endif
-                                    @if ($paciente_diagnostico->estatus=='Terminado'||$paciente_diagnostico->estatus=='Pieza Trabajada')
-                                    class="  custom-badge status-green">
-                                    @endif
-                                     
-                                    {{$paciente_diagnostico->estatus}}</span> 
-                                  
-                                   
+                                 <select name="estatus">
+                                    <option value="Pieza en Espera">Pieza en Espera</option>
+                                    <option value="Pieza en Proceso">Pieza en Proceso</option>
+                                    <option value="Pieza Trabajada">Pieza Trabajada</option>
+                                 </select>
                                 </td>
-                                <td class="text-right">
-                                    <a title="Editar Estado Tratamiento" href="{{route('RutaT.editar',['id'=>$paciente_diagnostico->id,'p'=>$paciente->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
-                                      
-                                    <a title="Eliminar Tratamiento" href="#"><li class="fa fa-trash-o" style="width: 1rem"></li></a>
-                                        
-                                        
-                                    </div>
-                                </td>
+                               <td>
+                                <button type="submit" class="btn btn-primary  btn-rounded btn-press btn-add" maxlength="100" style="list-style: none; color: aliceblue;">Actualizar</button>
+
+
+                               </td>
                             </tr>
-                            @endforeach
                             
+                            
+                         
+                             </form>
                         </tbody>
                     </table>
                 </div>
