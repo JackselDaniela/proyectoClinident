@@ -18,6 +18,7 @@ class CreatePiezasTable extends Migration
             $table->string('nom_pieza');
             $table->string('ubicacion');
             $table->string('tipo');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

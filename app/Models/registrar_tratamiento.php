@@ -11,7 +11,9 @@ class registrar_tratamiento extends Model
     use HasFactory;
     use Softdeletes;
     protected $guarded = []; 
-    protected $fillable=['id','nom_tratamiento','costo_tratamiento','codigo_tratamiento','fecha_añadido','especialidad_tratamiento'];
-     
+   
+    public function paciente_diagnostico(){
+        return $this->hasMany(paciente_diagnostico::class,'registrar_tratamientos_id');
+    } 
  
 }

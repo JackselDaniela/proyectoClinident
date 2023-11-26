@@ -10,6 +10,7 @@ use App\Models\persona;
 use App\Models\expediente;
 use App\Models\pieza;
 use App\Models\estatus_tratamiento;
+use App\Models\registrar_tratamiento;
 use App\Models\diagnostico;
 use App\Models\paciente_diagnostico;
 
@@ -31,9 +32,18 @@ class OdontogramaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id,$piezas_id)
     {
-        //
+        // SELECT * FROM empleados INNER JOIN departamentos ON empleados.e_id = departamentos.d_id;
+        $pieza = pieza::find($piezas_id);
+        $nom_pieza = $pieza->nom_pieza;
+
+        $diagnostico           = diagnostico::all();
+        $registrar_tratamiento = registrar_tratamiento::all();
+       
+
+
+        return view('odontograma',compact('id','piezas_id','nom_pieza','registrar_tratamiento','diagnostico'));
     }
 
     /**
@@ -42,8 +52,34 @@ class OdontogramaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id, $piezas_id)
     {
+        
+         $paciente_diagnostico = paciente_diagnostico::create([
+             'pacientes_id' => $id ,
+             'piezas_id'=> $piezas_id,
+             'diagnosticos_id'=> $request->post('diagnostico'),
+             'registrar_tratamientos_id'=> $request->post('nom_tratamiento'),
+             
+
+        ]);
+      
+        // $diagnostico = diagnostico::create([
+        //     'diagnostico'    => $request->post('diagnostico'),
+            
+            
+        // ]);
+        // $registrar_tratamiento = registrar_tratamiento::create([
+        //     'nom_tratamiento'    => $request->post('nom_tratamiento'),
+            
+            
+        // ]);
+      
+       if ($paciente_diagnostico != null) {
+                return redirect()->route('EditarP.buscar',$id);
+            }else{
+                return redirect()->route('EditarP.buscar',$id);
+            }
         
     }
 
@@ -68,7 +104,7 @@ class OdontogramaController extends Controller
     {
         //
     }
-
+   
     /**
      * Update the specified resource in storage.
      *

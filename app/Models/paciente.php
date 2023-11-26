@@ -15,6 +15,9 @@ class paciente extends Model
     public function expediente(){
         return $this->hasOne(expediente::class,'pacientes_id');
     }
+    public function paciente_diagnostico(){
+        return $this->hasOne(paciente_diagnostico::class,'pacientes_id');
+    }
     
 
 }

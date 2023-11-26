@@ -82,7 +82,7 @@ Auth::routes();
 
 
 /* añadir tratamiento paciente*/ 
-Route::get('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'index'])->name('AnadirT');
+Route::get('/AnadirT/', [App\Http\Controllers\AnadirTController::class, 'index'])->name('AnadirT');
 Auth::routes();
 Route::post('/AnadirT', [App\Http\Controllers\AnadirTController::class, 'store'])->name('AnadirT.store');
 Auth::routes();
@@ -96,17 +96,21 @@ Auth::routes();
 /* Odontograma*/ 
 Route::get('/Odontograma', [App\Http\Controllers\OdontogramaController::class, 'index'])->name('Odontograma');
 Auth::routes();
-Route::post('/Odontograma', [App\Http\Controllers\OdontogramaController::class, 'store'])->name('Odontograma.store');
+Route::post('/Odontograma/{id}/{piezas_id}', [App\Http\Controllers\OdontogramaController::class, 'store'])->name('Odontograma.store');
+Auth::routes();
+Route::get('/AnadirT/{id}/{piezas_id}', [App\Http\Controllers\OdontogramaController::class, 'create'])->name('Odontograma.create');
 Auth::routes();
 Route::put('/AnadirT/edit/{slug?}', [App\Http\Controllers\AnadirTController::class, 'edit'])->name('AnadirT.edit');
 Auth::routes();
-Route::get('/AnadirT/buscar/{slug?}', [App\Http\Controllers\AnadirTController::class, 'buscar'])->name('AnadirT.buscar');
+Route::get('/Odontograma/buscar/{idp}/{id} ', [App\Http\Controllers\OdontogramaController::class, 'buscar'])->name('Odontograma.buscar');
 Auth::routes();
 Route::put('/update-AnadirT/{slug?}', [App\Http\Controllers\AnadirTController::class, 'update'])->name('AnadirT.update');
 Auth::routes();
 
 /* Ruta Tratamientoa*/ 
 Route::get('/RutaT', [App\Http\Controllers\RutaTController::class, 'index'])->name('RutaT');
+Auth::routes();
+Route::get('/RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'buscar'])->name('RutaT.buscar');
 Auth::routes();
 Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
 Auth::routes();
@@ -267,6 +271,7 @@ Auth::routes();
 Route::get('/EditarP/{id}', [App\Http\Controllers\EditarPController::class, 'edit'])->name('EditarP.edit');
 Auth::routes();
 Route::get('/AnadirT/{id}', [App\Http\Controllers\EditarPController::class, 'buscar'])->name('EditarP.buscar');
+
 Route::put('/update-EditarP/{id}', [App\Http\Controllers\EditarPController::class, 'update'])->name('EditarP.update');
 Auth::routes();
 

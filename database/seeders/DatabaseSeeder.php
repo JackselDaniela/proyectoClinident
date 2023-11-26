@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TipoPersonasSeeder::class,
             PiezaSeeder::class,
-            // TratamientoSeeder::class,
+            TratamientoSeeder::class,
             // DatoUbicacionSeeder::class,
             // PersonaSeeder::class,
             // PacienteSeeder::class,
             // ExpedienteSeeder::class,
             // EspecialidadSeeder::class,
             // DoctorSeeder::class,
+             DiagnosticoSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

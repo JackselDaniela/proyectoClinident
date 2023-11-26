@@ -21,7 +21,6 @@ class RegistroEController extends Controller
     
     {
         
-       
         $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
         ->get();
        

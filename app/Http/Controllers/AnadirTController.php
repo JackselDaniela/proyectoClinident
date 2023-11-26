@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\paciente;
 use App\Models\expediente;
 use App\Models\persona;
+use App\Models\pieza;
 
 class AnadirTController extends Controller
 {
@@ -15,8 +16,9 @@ class AnadirTController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
+        $pieza = pieza::All()->get();
         $pacientes = persona::All();
-       return view('AnadirT',compact('pacientes'));
+       return view('AnadirT',compact('pacientes','pieza'));
     }
 
     /**

@@ -17,7 +17,7 @@
                 <div class="col-sm-7 col-8 text-right m-b-30">
                     <div class="btn-group btn-group-sm">
                         <button class="btn btn-white"><img src="{{asset('assets/img/pdf.png')}}" style="width: 30px"></button>
-                        <button class="btn btn-white"><i class="fa fa-print fa-lg"></i>Imprimir</button>
+                        <button class="btn btn-white"><i class="fa fa-print fa-lg"></i></button>
                     </div>
                 </div>
             </div>
@@ -36,12 +36,12 @@
                             <div  class="col-sm-12 col-lg-12 text-right m-b-20">
                                 
                                 <div  class="col-sm-12 col-md-12 text-right m-b-20">
-                                    <button class="btn btn-primary float-right btn-rounded btn-press btn-add"><a href="{{route('AnadirP')}}" style="color: aliceblue"><i class="fa fa-plus"></i> Añadir</a></button>
+                                    <button class="btn btn-primary float-right btn-rounded btn-press btn-add"><a href="{{route('AnadirP')}}" style="color: aliceblue; margin-bottom:2rem"><i class="fa fa-user-plus"></i> Añadir</a></button>
                                 </div>
                            
                             </div>
                           
-                                <table id="Example" class="table table-border table-striped custom-table datatable mb-0">
+                                <table id="Example" class="table table-border table-striped custom-table  mb-0">
                                 <thead>
                                     <tr>
                                         <th>Doc. Identidad</th>
@@ -55,10 +55,11 @@
                                 </thead>
                                 <tbody>
                                    
-                               
+                              
                                     @foreach ($paciente as $paciente)
                                         @php
                                             $persona = $paciente->persona;
+                                            
                                         @endphp
                                         <tr>
                                         <td>{{$persona->doc_identidad;}}</td>
@@ -69,8 +70,10 @@
                                         <td>{{$persona->dato_ubicacion->correo;}}</td>
                                         <td >
                                             <a title="Añadir Tratamiento" href="{{route('EditarP.buscar',['id'=>$paciente->id])}}"><li class="fa fa-plus" style="width: 1rem"></li></a>
+                                            <a title="Ruta de Tratamiento" href="{{route('RutaT.buscar',['id'=>$paciente->id])}}"><li class="fa fa-list-ol" style="width: 1rem"></li></a>
                                             <a title="Editar Paciente" href="{{route('EditarP.edit',['id'=>$paciente->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
                                             <a title="Eliminar Paciente" href="{{route('eliminarE',['id'=>$paciente->id]) }}"><li class="fa fa-trash-o" style="width: 1rem"></li></a>
+                                        
                                         </td>
                                         </tr>
                                     @endforeach 

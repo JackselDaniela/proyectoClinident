@@ -69,10 +69,12 @@ class EditarPController extends Controller
     }
     public function buscar($id)
     {
+        $pieza = pieza::all();
+        
        $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
         ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
         ->find($id);
-        return view('AnadirT', compact('paciente'));
+        return view('AnadirT', compact('paciente','pieza'));
 
     }
     /**

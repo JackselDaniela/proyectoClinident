@@ -13,7 +13,7 @@
     <div class="content">
         <div class="row">
             <div class="col-sm-4 col-3">
-                <h4 class="page-title">Procedimiento en Pieza Nº </h4>
+                <h4 class="page-title">Procedimiento en Pieza Nº {{$nom_pieza}} </h4>
             </div>
 
             
@@ -67,7 +67,8 @@
                 <div class="modal-content " style="justify-content: center">
                     <div class="card-box">
                         <h4 class="card-title" style="padding-bottom: 2rem">Diagnostico y Tratamiento de la Pieza</h4>
-                        <form action="#">
+                        <form action="{{route('Odontograma.store',['id'=>$id,'piezas_id'=>$piezas_id])}}" method="POST">
+                            @csrf
                             {{-- <div class="form-group row">
                                 <label class="col-form-label col-md-2">Text Input</label>
                                 <div class="col-md-10">
@@ -84,35 +85,22 @@
                             <div class="form-group row">
                                 <label class=" col-sm-2">Diagnóstico</label>
                                 <div class="col-md-8">
-                                    <select class="form-control">
-                                        <option value="No Especifica">-- Seleccione --</option>
-                                        <option value="Gingivitis" >Gingivitis</option>
-                                        <option value="Periodontitis">Periodontitis</option>
-                                        <option value="Caries">Caries</option>
-                                        <option value="Abfracción">Abfración</option>
-                                        <option value="Abrasión">Abrasión</option>
-                                        <option value="Erosión">Erosión</option>
-                                        <option value="Atrición">Atrición</option>
-                                        <option value="Tercer Molar Erupcionado">Tercer Molar Erupcionado</option>
-                                        <option value="Tercer Molar Incluido">Tercer Molar Incluido</option>
-                                        <option value="Tercer Molar Semi-incluido">Tercer Molar Semi-incluido</option>
-                                        <option value="Fractura Incompleta">Fractura Incompleta</option>
-                                        <option value="Fractura No-Complicada de la Corona">Fractura No-Complicada de la Corona</option>
-                                        <option value="Fractura Complicada de la Corona">Fractura Complicada de la Corona</option>
+                                    <select class="form-control" name="diagnostico">
+                                        @foreach ($diagnostico as $diagnostico)
+                                        <option value="{{$diagnostico->id}}"> {{$diagnostico->diagnostico}} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label class=" col-sm-2">Tratamiento</label>
                                 <div class="col-md-8">
-                                    <select class="form-control">
-                                        <option value="No Especifica">-- Seleccione --</option>
-                                        <option value="Extracción-Simple" >Extracción-Simple</option>
-                                        <option value="Extracción-Compleja" >Extracción-Compleja</option>
-                                        <option value="Reconstrucción" >Reconstrucción</option>
-                                        <option value="Extraccion-Simple Incluida">Extraccion-Simple Incluida</option>
-                                        <option value="Extraccion-Simple Semi-Incluida">Extraccion-Simple Semi-Incluida</option>
-                                        <option value="Restauración">Restauración</option>
+                                    <select class="form-control" name="nom_tratamiento">
+                                        @foreach ($registrar_tratamiento as $registrar_tratamiento)
+                                        <option value="{{$registrar_tratamiento->id}}"> {{$registrar_tratamiento->nom_tratamiento}} </option>
+                                        @endforeach
+                                        
                                         
                                     </select>
                                 </div>

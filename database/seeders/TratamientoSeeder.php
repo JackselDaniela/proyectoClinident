@@ -17,15 +17,15 @@ class TratamientoSeeder extends Seeder
     public function run()
     {
         registrar_tratamiento::create([
-            'nom_tratamiento' => 'Blanqueamiento',
-            'costo_tratamiento' => '30$',
+            'nom_tratamiento' => 'Extracción-Simple',
+            'costo_tratamiento' => '100$',
             'codigo_tratamiento' => '0001',
             'fecha_añadido' => '10/10/2013',
             'especialidad_tratamiento' => 'Odontologia General',
 
         ]);
         registrar_tratamiento::create([
-            'nom_tratamiento' => 'Tratamiento de Conducto',
+            'nom_tratamiento' => 'Extracción-Compleja',
             'costo_tratamiento' => '200$',
             'codigo_tratamiento' => '0002',
             'fecha_añadido' => '11/10/2013',
@@ -33,7 +33,7 @@ class TratamientoSeeder extends Seeder
 
         ]);
         registrar_tratamiento::create([
-            'nom_tratamiento' => 'Extraccion de Pieza',
+            'nom_tratamiento' => 'Reconstrucción',
             'costo_tratamiento' => '50$',
             'codigo_tratamiento' => '0003',
             'fecha_añadido' => '11/10/2013',
@@ -41,9 +41,41 @@ class TratamientoSeeder extends Seeder
 
         ]);
         registrar_tratamiento::create([
-            'nom_tratamiento' => 'Limpieza',
-            'costo_tratamiento' => '20$',
+            'nom_tratamiento' => 'Extraccion-Simple Incluida',
+            'costo_tratamiento' => '250$',
             'codigo_tratamiento' => '0004',
+            'fecha_añadido' => '12/10/2013',
+            'especialidad_tratamiento' => 'Odontología General',
+
+        ]);
+        registrar_tratamiento::create([
+            'nom_tratamiento' => 'Extraccion-Simple Semi-Incluida',
+            'costo_tratamiento' => '150$',
+            'codigo_tratamiento' => '0005',
+            'fecha_añadido' => '12/10/2013',
+            'especialidad_tratamiento' => 'Odontología General',
+
+        ]);
+        registrar_tratamiento::create([
+            'nom_tratamiento' => 'Restauración',
+            'costo_tratamiento' => '300$',
+            'codigo_tratamiento' => '0006',
+            'fecha_añadido' => '12/10/2013',
+            'especialidad_tratamiento' => 'Odontología General',
+
+        ]);
+        registrar_tratamiento::create([
+            'nom_tratamiento' => 'Limpieza',
+            'costo_tratamiento' => '50$',
+            'codigo_tratamiento' => '0007',
+            'fecha_añadido' => '12/10/2013',
+            'especialidad_tratamiento' => 'Odontología General',
+
+        ]);
+        registrar_tratamiento::create([
+            'nom_tratamiento' => 'Blanqueamiento',
+            'costo_tratamiento' => '400$',
+            'codigo_tratamiento' => '0008',
             'fecha_añadido' => '12/10/2013',
             'especialidad_tratamiento' => 'Odontología General',
 
