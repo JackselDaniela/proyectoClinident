@@ -52,7 +52,7 @@
                         <div class="col-md-12">
                             <div class="input-group">
                                  
-                                <input class="form-control" value="Presupuesto: {{$presupuesto}}" type="text" disabled>
+                                <input class="form-control" value="Presupuesto: {{$presupuestoT}}" type="text" disabled>
                                 
                             </div>
                         </div>

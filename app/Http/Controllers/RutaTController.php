@@ -67,14 +67,23 @@ class RutaTController extends Controller
         
         
 
-
-       $presupuesto= DB::table("paciente_diagnosticos")
-       ->where('paciente_diagnosticos.id','=','registrar_tratamientos.id')
-       ->get()->sum("registrar_tratamientos.costo_tratamiento");
-
+       ;
+     $presupuesto= paciente_diagnostico::with('registrar_tratamiento','paciente')
+    //    ->join('registrar_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
+    //    ->join('pacientes','paciente_diagnosticos.pacientes_id','=','pacientes.id')
+      
+    ->where('pacientes_id',$id)  ->get();
+    
+    $presupuestoT = 0; 
+    foreach ($presupuesto as $presupuesto) {
+        $presupuestoT += (int)(rtrim
+          ($presupuesto->registrar_tratamiento->costo_tratamiento, '$'));
+      }
+       
+    //    dd($presupuesto);
        
 
-        return view('RutaT', compact('paciente_diagnostico','paciente','estatus_tratamiento', 'presupuesto'));
+        return view('RutaT', compact('paciente_diagnostico','paciente','estatus_tratamiento', 'presupuesto','presupuestoT'));
 
     }
 
