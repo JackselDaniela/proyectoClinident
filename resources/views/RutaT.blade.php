@@ -20,14 +20,18 @@
                 </div>
             </div>
         </div>
-        
+        <a href="{{route('RegistroE')}}"><button style="font-size: 1rem; margin:1rem" class="btn btn-primary float-right btn-rounded btn-press btn-add" >Listado de Pacientes</button></a>
+
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{asset('Index')}}">Gestion Paciente</a></li>
                 <li class="breadcrumb-item"><a href="{{asset('RegistroE')}}">Listado de Pacientes</a></li>
                 <li class="breadcrumb-item"><a href="{{asset('RutaT')}}">Ruta de Tratamiento</a></li>
             </ol>
+            
         </nav>
+        
+       
 
         <section>
             <div class="row filter-row">
@@ -54,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+               
                 
         </div>
         
@@ -71,13 +76,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                           
                             @foreach ($paciente_diagnostico as $paciente_diagnostico)
-                                
+                            
                             
                             <tr>
                                 <td>{{$paciente_diagnostico->pieza->nom_pieza}}</td>
                                 <td>{{$paciente_diagnostico->diagnostico}}</td>
-                                <td>{{$paciente_diagnostico->costo_tratamiento}} $</td>
+                                <td>{{$paciente_diagnostico->costo_tratamiento}}</td>
                                 <td >
                                   
                                     <span
@@ -105,9 +111,11 @@
                                 </td>
                             </tr>
                             @endforeach
+                          
                             
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>

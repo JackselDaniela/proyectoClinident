@@ -65,10 +65,14 @@ class RutaTController extends Controller
        
         ->get();
         
-        $costos = paciente_diagnostico::join('registrar_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
-  
-         ->where('costo_tratamiento',true)->get();
-         $presupuesto = $costos->sum('costo_tratamiento');
+        
+
+
+       $presupuesto= DB::table("paciente_diagnosticos")
+       ->where('paciente_diagnosticos.id','=','registrar_tratamientos.id')
+       ->get()->sum("registrar_tratamientos.costo_tratamiento");
+
+       
 
         return view('RutaT', compact('paciente_diagnostico','paciente','estatus_tratamiento', 'presupuesto'));
 
