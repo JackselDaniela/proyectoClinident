@@ -35,39 +35,30 @@ class RutaTController extends Controller
      */
     public function create($id)
     {
-        // $paciente = paciente::with('persona')
-        // ->join('personas','pacientes.personas_id','=','pacientes.id')
-        // ->get();
-        // $estatus_tratamiento           = estatus_tratamiento::all();
-        // return view('RutaT',compact('id','estatus_tratamiento'));
+      
     }
-    // public function eliminarT($id)
-    // {
-    //     $paciente_diagnostico = paciente_diagnostico::find($id);
-    //     $paciente_diagnostico->delete();
-    //     return redirect()->route("RutaT",compact('paciente_diagnostico'));
-    // }
 
     public function buscar($id)
     {
+        //ruta de tratamiento
         // SELECT * FROM `paciente_diagnosticos` INNER JOIN registrar_tratamientos ON paciente_diagnosticos.registrar_tratamientos_id = registrar_tratamientos.id;
-        $pieza = pieza::all();
+        
         $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
-        ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
+        ->join('expedientes','expedientes.pacientes_id','=','expedientes.id') ->where('pacientes_id',$id)
         ->find($id);
 
-       $estatus_tratamiento           = estatus_tratamiento::all();
-       $paciente_diagnostico = paciente_diagnostico::with('pieza','estatus_tratamiento','diagnostico','registrar_tratamiento')
-        ->join('piezas','paciente_diagnosticos.piezas_id','=','piezas.id')
-        ->join('diagnosticos','paciente_diagnosticos.diagnosticos_id','=','diagnosticos.id')
-        ->join('registrar_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
-        ->join('estatus_tratamientos','paciente_diagnosticos.estatus_tratamientos_id','=','estatus_tratamientos.id')
-       
+   $estatus_tratamiento           = estatus_tratamiento::all();
+       $paciente_diagnostico = paciente_diagnostico::with('pieza','estatus_tratamiento','diagnostico','registrar_tratamiento', 'paciente')
+    //     ->join('piezas','paciente_diagnosticos.piezas_id','=','piezas.id')
+    //      ->join('diagnosticos','paciente_diagnosticos.diagnosticos_id','=','diagnosticos.id')
+    //     ->join('registrar_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
+    //    ->join('estatus_tratamientos','paciente_diagnosticos.estatus_tratamientos_id','=','estatus_tratamientos.id')
+        ->where('pacientes_id',$id)
         ->get();
         
         
 
-       ;
+       ;//presupuesto de ruta de tratameinto
      $presupuesto= paciente_diagnostico::with('registrar_tratamiento','paciente')
     //    ->join('registrar_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
     //    ->join('pacientes','paciente_diagnosticos.pacientes_id','=','pacientes.id')
@@ -83,7 +74,7 @@ class RutaTController extends Controller
     //    dd($presupuesto);
        
 
-        return view('RutaT', compact('paciente_diagnostico','paciente','estatus_tratamiento', 'presupuesto','presupuestoT'));
+        return view('RutaT', compact('paciente_diagnostico','paciente','estatus_tratamiento', 'presupuesto','presupuestoT','id'));
 
     }
 
@@ -95,9 +86,9 @@ class RutaTController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -122,18 +113,16 @@ class RutaTController extends Controller
      */
 
 
-    public function editar($id,$p)
+    public function editar($id)
     {
         $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
-        ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
-        ->find($p);
+         ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
+        ->get();
 
-        $paciente_diagnostico = paciente_diagnostico::with('pieza','estatus_tratamiento','diagnostico','registrar_tratamiento')
-        ->join('piezas','paciente_diagnosticos.piezas_id','=','piezas.id')
-        ->join('diagnosticos','paciente_diagnosticos.diagnosticos_id','=','diagnosticos.id')
-        ->join('registrar_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
-        ->join('estatus_tratamientos','paciente_diagnosticos.registrar_tratamientos_id','=','registrar_tratamientos.id')
-       ->find($id);
+        $paciente_diagnostico = paciente_diagnostico::with('pieza','estatus_tratamiento','diagnostico','registrar_tratamiento','estatus_tratamiento','paciente.persona')
+        ->findOrFail($id);
+       
+    //    $epieza = estatus_tratamiento::find($id)
        return view('EditarRutaT', compact('paciente_diagnostico','paciente'));
     }
 
@@ -147,17 +136,17 @@ class RutaTController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+     {
         $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
-        ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
-        ->get();
-        $paciente_diagnostico = DB::table('estatus_tratamientos')->where('id', $id)
-        -> update([
-           'estatus'=>$request ->estatus
-        ]);
-        return redirect()->route('RegistroE',compact('paciente_diagnostico','paciente'));
+      ->get();
+        $paciente_diagnostico = paciente_diagnostico::with('pieza','diagnostico','estatus_tratamiento','registrar_tratamiento')
+        ->where('id', $id)
+        ->update([
+        'estatus_tratamientos_id' =>$request->estatus,
+       ]);
+       
+        return view('RegistroE', compact('paciente','paciente_diagnostico'));
     }
-
     /**
      * Remove the specified resource from storage.
      *

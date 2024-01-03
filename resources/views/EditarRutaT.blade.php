@@ -25,7 +25,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{asset('Index')}}">Gestion Paciente</a></li>
                 <li class="breadcrumb-item"><a href="{{asset('RegistroE')}}">Listado de Pacientes</a></li>
-                <li class="breadcrumb-item"><a href="{{asset('RutaT')}}">Ruta de Tratamiento</a></li>
+                <li class="breadcrumb-item"><a href="#">Ruta de Tratamiento</a></li>
             </ol>
         </nav>
 
@@ -37,7 +37,7 @@
                         <div class="col-md-12">
                             <div class="input-group">
                                 
-                                <input class="form-control" value="Paciente: {{$paciente->persona->nombre.' '.$paciente->persona->apellido}}" type="text" disabled>
+                                <input class="form-control" value="Paciente:  {{$paciente_diagnostico->paciente->persona->nombre.' '.$paciente_diagnostico->paciente->persona->apellido}}" type="text" disabled>
                                
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                         <div class="col-md-12">
                             <div class="input-group">
                                  
-                                <input class="form-control" value="Presupuesto: {{$paciente->persona->nombre}}" type="text" disabled>
+                                <input class="form-control" value="Presupuesto: {{$paciente_diagnostico->paciente->persona->nombre.' '.$paciente_diagnostico->paciente->persona->apellido}}" type="text" disabled>
                                 
                             </div>
                         </div>
@@ -76,15 +76,28 @@
                                 @csrf
                                 @method('PUT')
                             <tr>
-                                <td>{{$paciente_diagnostico->nom_pieza}}</td>
-                                <td>{{$paciente_diagnostico->diagnostico}}</td>
-                                <td>{{$paciente_diagnostico->costo_tratamiento}} $</td>
+                                <td>{{$paciente_diagnostico->pieza->nom_pieza}}</td>
+                                <td>{{$paciente_diagnostico->diagnostico->diagnostico}}</td>
+                                <td>{{$paciente_diagnostico->registrar_tratamiento->costo_tratamiento}}</td>
                                 <td >
-                                 <select name="estatus">
-                                    <option value="Pieza en Espera">Pieza en Espera</option>
-                                    <option value="Pieza en Proceso">Pieza en Proceso</option>
-                                    <option value="Pieza Trabajada">Pieza Trabajada</option>
-                                 </select>
+                                   {{-- @dd($paciente_diagnostico); --}}
+                                   
+                                    <input type="radio"  @if ($paciente_diagnostico->estatus_tratamientos_id==1)
+                                    checked
+                                    @endif 
+                                    value="1" name="estatus" >
+                                    <span>Pieza en Espera</span>
+                                    <br>
+                                    <input type="radio"  
+                                    @if ($paciente_diagnostico->estatus_tratamientos_id==2)
+                                    checked
+                                    @endif
+                                    value="2" name="estatus" ><span>Pieza en Proceso</span><br>
+                                    <input type="radio"  
+                                    @if ($paciente_diagnostico->estatus_tratamientos_id==3)
+                                    checked
+                                    @endif
+                                    value="3" name="estatus" ><span>Pieza Trabajada</span><br>
                                 </td>
                                <td>
                                 <button type="submit" class="btn btn-primary  btn-rounded btn-press btn-add" maxlength="100" style="list-style: none; color: aliceblue;">Actualizar</button>

@@ -14,16 +14,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            TipoPersonasSeeder::class,
-            PiezaSeeder::class,
-            TratamientoSeeder::class,
-            // DatoUbicacionSeeder::class,
-            // PersonaSeeder::class,
-            // PacienteSeeder::class,
-            // ExpedienteSeeder::class,
-            // EspecialidadSeeder::class,
-            // DoctorSeeder::class,
-             DiagnosticoSeeder::class,
+             TipoPersonasSeeder::class,
+             PiezaSeeder::class,
+             TratamientoSeeder::class,
+            // // DatoUbicacionSeeder::class,
+            // // PersonaSeeder::class,
+            // // PacienteSeeder::class,
+            // // ExpedienteSeeder::class,
+            // // EspecialidadSeeder::class,
+            // // DoctorSeeder::class,
+              DiagnosticoSeeder::class,
+             EstatusTratamientoSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

@@ -27,8 +27,6 @@
             </ol>
         </nav>
         <div class="row">
-             
-            
             <div class="col-sm-5 col-md-5">
                 <div class="form-group row">
                     <div class="col-md-12">
@@ -69,19 +67,7 @@
                         <h4 class="card-title" style="padding-bottom: 2rem">Diagnostico y Tratamiento de la Pieza</h4>
                         <form action="{{route('Odontograma.store',['id'=>$id,'piezas_id'=>$piezas_id])}}" method="POST">
                             @csrf
-                            {{-- <div class="form-group row">
-                                <label class="col-form-label col-md-2">Text Input</label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div> --}}
-                           
-                            {{-- <div class="form-group row">
-                                <label class="col-form-label col-md-2">File input</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="file">
-                                </div>
-                            </div> --}}
+                            
                             <div class="form-group row">
                                 <label class=" col-sm-2">Diagnóstico</label>
                                 <div class="col-md-8">
@@ -105,20 +91,7 @@
                                     </select>
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
-                                <label class=" col-sm-2">Especialidad</label>
-                                <div class="col-md-8">
-                                    <select class="form-control">
-                                        <option value="No Especifica">-- Seleccione --</option>
-                                        <option value="Endodoncia" >Endodoncia</option>
-                                        <option value="Ortodoncia" >Ortodoncia</option>
-                                        <option value="Maxilo Facial" >Maxilo Facial</option>
-                                        <option value="Periodoncia">Periodoncia</option>
-                                        <option value="Prostodoncia">Prostodoncia</option>
-                                        
-                                    </select>
-                                </div>
-                            </div> --}}
+                           
                             
                             <button type="submit" class="btn btn-primary submit-btn" maxlength="100" style="list-style: none; color: aliceblue;">Guardar</button>
 

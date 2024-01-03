@@ -85,23 +85,40 @@
                         <div class="contenedor-dentadura" id="dentadura-completa">
                            
                             <div class="row" >
-                                {{-- @php
-                                use App\Models\pieza;
 
-                                $pieza = pieza::all();
-                                @endphp --}}
-                                  
                                 <img class="dentadura" src="{{asset('assets/img/boca/dentadura.png')}}"  alt="">
                                 @foreach ($pieza as $pieza)  
                                  <!-- Maxilar superior izq -->
-                                <a id="{{$pieza->nom_pieza}}" href="{{route('Odontograma.create',['id'=>$paciente->id,'piezas_id'=>$pieza->id])}}" title="Pieza {{$pieza->nom_pieza}}">
                                  
+                                <a id="{{$pieza->nom_pieza}}" href="{{route('Odontograma.create',['id'=>$id,'piezas_id'=>$pieza->id])}}" title="Pieza {{$pieza->nom_pieza}}">
+                                 @php
+                                     $diagnosticoEncontrado= $diagnosticos->first(function($diagnostico) use($pieza){
+                                        return $diagnostico->piezas_id==$pieza->id;
+                                        
+                                    });
+                                     $esPiezaFaltante= $diagnosticoEncontrado ?->diagnosticos_id==14;
+                                 @endphp
                                     
-                                    @if (isset($pieza->diagnosticos_id))
+                                    @if ($esPiezaFaltante)
+                                    <img class="{{$pieza->nom_pieza}} pieza" src="{{asset($pieza->imagenF)}}" alt="">
+                                    @elseif ($diagnosticoEncontrado!=null)
                                     <img class="{{$pieza->nom_pieza}} pieza" src="{{asset($pieza->imagenT)}}" alt="">
-                                    @else
-                                    <img class="{{$pieza->nom_pieza}} pieza" src="{{asset($pieza->imagen)}}" alt=""> 
+                                     
+                                    @else 
+                                    <img class="{{$pieza->nom_pieza}} pieza" src="{{asset($pieza->imagen)}}" alt="">
                                     @endif
+                                    
+                                    
+
+
+
+                                     {{-- @if ($pieza->diagnosticos_id!=null && $pieza->diagnosticos_id!=14)
+                                    <img class="{{$pieza->nom_pieza}} pieza" src="{{asset($pieza->imagenT)}}" alt="">
+                                    @endif
+                                     @if ($pieza->diagnosticos_id!=null && $pieza->diagnosticos_id==14)
+                                    <img class="{{$pieza->nom_pieza}} pieza" src="{{asset($pieza->imagenF)}}" alt="">
+                                    @endif --}}
+                                    
                                      
                                     <input type="hidden" value="p11">
                                 </a>

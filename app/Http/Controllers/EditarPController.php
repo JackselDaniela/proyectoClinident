@@ -5,6 +5,7 @@ use App\Models\persona;
 use App\Models\dato_ubicacion;
 use App\Models\especialidad;
 use App\Models\paciente;
+use App\Models\paciente_diagnostico;
 use App\Models\expediente;
 use App\Models\pieza;
 
@@ -70,11 +71,13 @@ class EditarPController extends Controller
     public function buscar($id)
     {
         $pieza = pieza::all();
-        
+        $diagnosticos = paciente_diagnostico::where('pacientes_id',$id)->get(); 
+        // dd($diagnosticos);
        $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
         ->join('expedientes','expedientes.pacientes_id','=','expedientes.id')
         ->find($id);
-        return view('AnadirT', compact('paciente','pieza'));
+
+        return view('AnadirT', compact('paciente','pieza','id','diagnosticos'));
 
     }
     /**

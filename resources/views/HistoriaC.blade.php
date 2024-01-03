@@ -60,8 +60,8 @@
                                 <tr>
                                 
                                     <td>000123</td>
-                                    <td>Francisco</td>
-                                    <td>Jimenez</td>
+                                    <td>{{$paciente->persona->nombre}}</td>
+                                    <td>{{$paciente->persona->apellido}}</td>
                                     <td>35</td>
                                     <td class="text-center">
                                         <div class="dropdown action-label">

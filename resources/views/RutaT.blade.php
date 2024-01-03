@@ -26,7 +26,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{asset('Index')}}">Gestion Paciente</a></li>
                 <li class="breadcrumb-item"><a href="{{asset('RegistroE')}}">Listado de Pacientes</a></li>
-                <li class="breadcrumb-item"><a href="{{asset('RutaT')}}">Ruta de Tratamiento</a></li>
+                <li class="breadcrumb-item"><a href="#">Ruta de Tratamiento</a></li>
             </ol>
             
         </nav>
@@ -69,7 +69,8 @@
                         <thead>
                             <tr>
                                 <th># Pieza</th>
-                                <th>Tratamiento</th>
+                                <th>Diagnostico</th>
+                                <th>Procedimiento</th>
                                 <th>Costo</th>
                                 <th>Estatus</th>
                                 <th class="text-right">Acción</th>
@@ -82,27 +83,28 @@
                             
                             <tr>
                                 <td>{{$paciente_diagnostico->pieza->nom_pieza}}</td>
-                                <td>{{$paciente_diagnostico->diagnostico}}</td>
-                                <td>{{$paciente_diagnostico->costo_tratamiento}}</td>
+                                <td>{{$paciente_diagnostico->diagnostico->diagnostico}}</td>
+                                <td>{{$paciente_diagnostico->registrar_tratamiento->nom_tratamiento}}</td>
+                                <td>{{$paciente_diagnostico->registrar_tratamiento->costo_tratamiento}}</td>
                                 <td >
                                   
                                     <span
-                                    @if ($paciente_diagnostico->estatus=='En Espera'||$paciente_diagnostico->estatus=='Pieza en Espera')
+                                    @if ($paciente_diagnostico->estatus_tratamientos_id==1||$paciente_diagnostico->estatus=='Pieza en Espera')
                                     class="  custom-badge status-red">
                                     @endif
-                                    @if ($paciente_diagnostico->estatus=='En Proceso'||$paciente_diagnostico->estatus=='Pieza en Proceso')
+                                    @if ($paciente_diagnostico->estatus_tratamientos_id==2||$paciente_diagnostico->estatus=='Pieza en Proceso')
                                     class="  custom-badge status-blue">
                                     @endif
-                                    @if ($paciente_diagnostico->estatus=='Terminado'||$paciente_diagnostico->estatus=='Pieza Trabajada')
+                                    @if ($paciente_diagnostico->estatus_tratamientos_id==3||$paciente_diagnostico->estatus=='Pieza Trabajada')
                                     class="  custom-badge status-green">
                                     @endif
                                      
-                                    {{$paciente_diagnostico->estatus}}</span> 
+                                    {{$paciente_diagnostico->estatus_tratamiento->estatus}}</span> 
                                   
                                    
                                 </td>
                                 <td class="text-right">
-                                    <a title="Editar Estado Tratamiento" href="{{route('RutaT.editar',['id'=>$paciente_diagnostico->id,'p'=>$paciente->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
+                                    <a title="Editar Estado Tratamiento" href="{{route('RutaT.editar',['id'=>$paciente_diagnostico->id])}}"><li class="fa fa-edit" style="width: 1rem"></li></a>
                                       
                                     <a title="Eliminar Tratamiento" href="#"><li class="fa fa-trash-o" style="width: 1rem"></li></a>
                                         

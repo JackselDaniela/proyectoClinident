@@ -36,14 +36,19 @@ class OdontogramaController extends Controller
     {
         // SELECT * FROM empleados INNER JOIN departamentos ON empleados.e_id = departamentos.d_id;
         $pieza = pieza::find($piezas_id);
+       
+        $paciente = paciente::with('persona','expediente','persona.dato_ubicacion')
+        ->get();
+       
         $nom_pieza = $pieza->nom_pieza;
+        $id_paciente = $id;
 
         $diagnostico           = diagnostico::all();
         $registrar_tratamiento = registrar_tratamiento::all();
        
 
 
-        return view('odontograma',compact('id','piezas_id','nom_pieza','registrar_tratamiento','diagnostico'));
+        return view('odontograma',compact('id','id_paciente','paciente','piezas_id','nom_pieza','registrar_tratamiento','diagnostico'));
     }
 
     /**
@@ -60,6 +65,7 @@ class OdontogramaController extends Controller
              'piezas_id'=> $piezas_id,
              'diagnosticos_id'=> $request->post('diagnostico'),
              'registrar_tratamientos_id'=> $request->post('nom_tratamiento'),
+             'estatus_tratamientos_id'=> 1
              
 
         ]);

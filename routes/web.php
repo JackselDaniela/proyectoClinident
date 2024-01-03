@@ -108,15 +108,13 @@ Route::put('/update-AnadirT/{slug?}', [App\Http\Controllers\AnadirTController::c
 Auth::routes();
 
 /* Ruta Tratamientoa*/ 
-// Route::get('/RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'index'])->name('RutaT.index');
-// Auth::routes();
 Route::get('/RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'buscar'])->name('RutaT.buscar');
 Auth::routes();
 Route::get('/RutaT /{id}', [App\Http\Controllers\RutaTController::class, 'eliminarT'])->name('RutaT.eliminarT');
 Auth::routes();
-Route::post('/marca', [App\Http\Controllers\MarcaController::class, 'store'])->name('marca.store');
+Route::get('/RutaT/Mostrar/{id}', [App\Http\Controllers\RutaTController::class, 'store'])->name('RutaT.store');
 Auth::routes();
-Route::get('/RutaT/editar/{id}/{p}', [App\Http\Controllers\RutaTController::class, 'editar'])->name('RutaT.editar');
+Route::get('/RutaT/editar/{id}', [App\Http\Controllers\RutaTController::class, 'editar'])->name('RutaT.editar');
 Auth::routes();
 Route::put('/update-RutaT/{id}', [App\Http\Controllers\RutaTController::class, 'update'])->name('RutaT.update');
 Auth::routes();
